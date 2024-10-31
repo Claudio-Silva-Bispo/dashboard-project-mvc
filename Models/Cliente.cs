@@ -17,4 +17,10 @@ public class Cliente
     [Required(ErrorMessage = "O telefone é obrigatório")]
     [Phone(ErrorMessage = "Telefone inválido")]
     public string? Telefone { get; set; }
+
+    [Required(ErrorMessage = "O Genero é obrigatório")]
+    public string? Genero { get; set; }
+    
+    [Required(ErrorMessage = "A data de nascimento é obrigatória")]
+    public DateTime DataNasc { get; set; }
 }

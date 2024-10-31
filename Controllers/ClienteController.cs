@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-[Route("Cliente")] // Mantendo rota simples como 'Cliente'
+[Route("Cliente")] 
 public class ClienteController : Controller
 {
     private readonly ApplicationDbContext _context;
@@ -22,8 +22,8 @@ public class ClienteController : Controller
 
     // POST: Cliente/Criar
     [HttpPost("Criar")]
-    [ValidateAntiForgeryToken] // Protege contra ataques CSRF
-    public async Task<IActionResult> Criar([Bind("Id,Nome,Email,Telefone")] Cliente cliente)
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Criar([Bind("Id,Nome,Email,Telefone,Genero,DataNasc")] Cliente cliente)
     {
         if (ModelState.IsValid)
         {
@@ -70,7 +70,7 @@ public class ClienteController : Controller
     // POST: Cliente/Atualizar/5
     [HttpPost("Atualizar/{id}")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Atualizar(int id, [Bind("Id,Nome,Email,Telefone")] Cliente cliente)
+    public async Task<IActionResult> Atualizar(int id, [Bind("Id,Nome,Email,Telefone,Genero,DataNasc")] Cliente cliente)
     {
         if (id != cliente.Id)
         {
@@ -97,7 +97,7 @@ public class ClienteController : Controller
             }
             return RedirectToAction(nameof(ConsultarTodos)); // Redireciona para a lista de clientes após atualizar
         }
-        return View(cliente); // Se houver erro, retorna à view com o modelo
+        return View(cliente);
     }
 
     // GET: Cliente/Deletar/5
@@ -115,7 +115,7 @@ public class ClienteController : Controller
             return NotFound();
         }
 
-        return View(cliente); // Retorna a view de confirmação para deletar
+        return View(cliente);
     }
 
     // POST: Cliente/Deletar/5

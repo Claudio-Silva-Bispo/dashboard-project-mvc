@@ -122,3 +122,4 @@ C:\Users\claudio.bispo\OneDrive - Ezze Seguros S.A\Área de Trabalho\projeto-dot
 C:\Users\claudio.bispo\OneDrive - Ezze Seguros S.A\Área de Trabalho\projeto-dotnet\DelfosMachine\obj\Debug\net8.0\DelfosMachine.pdb
 C:\Users\claudio.bispo\OneDrive - Ezze Seguros S.A\Área de Trabalho\projeto-dotnet\DelfosMachine\obj\Debug\net8.0\DelfosMachine.genruntimeconfig.cache
 C:\Users\claudio.bispo\OneDrive - Ezze Seguros S.A\Área de Trabalho\projeto-dotnet\DelfosMachine\obj\Debug\net8.0\ref\DelfosMachine.dll
+C:\Users\claudio.bispo\OneDrive - Ezze Seguros S.A\Área de Trabalho\projeto-dotnet\DelfosMachine\obj\Debug\net8.0\DelfosMachine.sourcelink.json
