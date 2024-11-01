@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2LPrfHfnpBxhWwoIQ2fwWD+p8XvrT5dO2yBOFwwkXp8=",
+  "Hash": "FH17ad16ZAF2IMENPVYUVCag1is/WqNAnUgr3c1LbMI=",
   "Source": "DelfosMachine",
   "BasePath": "_content/DelfosMachine",
   "Mode": "Default",
@@ -300,6 +300,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\Main\\cliente.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\PaginaLogadaCliente\\agenda.png",
+      "SourceId": "DelfosMachine",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\",
+      "BasePath": "_content/DelfosMachine",
+      "RelativePath": "assets/PaginaLogadaCliente/agenda.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\PaginaLogadaCliente\\agenda.png"
     },
     {
       "Identity": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\PaginaLogadaCliente\\beneficios.png",

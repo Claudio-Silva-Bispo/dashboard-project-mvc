@@ -1,0 +1,50 @@
+@model DelfosMachine.Models.DadosCadastrais
+
+@{
+    ViewData["Title"] = "Atualizar Dados Cadastrais";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Dados Cadastrais</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Atualizar">
+            <div class="form-group">
+                <label asp-for="Cliente.Nome" class="control-label"></label>
+                <input asp-for="Cliente.Nome" class="form-control" />
+                <span asp-validation-for="Cliente.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente.Email" class="control-label"></label>
+                <input asp-for="Cliente.Email" class="form-control" />
+                <span asp-validation-for="Cliente.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente.Telefone" class="control-label"></label>
+                <input asp-for="Cliente.Telefone" class="form-control" />
+                <span asp-validation-for="Cliente.Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente.Genero" class="control-label"></label>
+                <input asp-for="Cliente.Genero" class="form-control" />
+                <span asp-validation-for="Cliente.Genero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente.DataNasc" class="control-label"></label>
+                <input asp-for="Cliente.DataNasc" class="form-control" />
+                <span asp-validation-for="Cliente.DataNasc" class="text-danger"></span>
+            </div>
+            <!-- Adicione campos para as outras propriedades de PreferenciaCliente e RotinaCuidadoCliente -->
+            <div class="form-group">
+                <input type="submit" value="Atualizar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

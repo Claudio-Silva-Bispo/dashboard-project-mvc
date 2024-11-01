@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\assets\\Main\\cliente.jpg"
     },
     {
+      "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\PaginaLogadaCliente\\agenda.png",
+      "PackagePath": "staticwebassets\\assets\\PaginaLogadaCliente\\agenda.png"
+    },
+    {
       "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\PaginaLogadaCliente\\beneficios.png",
       "PackagePath": "staticwebassets\\assets\\PaginaLogadaCliente\\beneficios.png"
     },

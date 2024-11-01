@@ -1,64 +1,40 @@
-@model IEnumerable<DelfosMachine.Models.PreferenciaCliente>
+@model IEnumerable<DelfosMachine.Models.RotinaCuidadoCliente>
 
 @{
     ViewData["Title"] = "Consultar Rotina";
 }
 
-<h2>Rotina de cuidado</h2>
+<h2>Rotina de Cuidado</h2>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Cliente</th>
-            <th>Endereço</th>
-            <th>Dia da Semana</th>
-            <th>Turno</th>
-            <th>Horário</th>
+            <th>Id</th>
+            <th>IdCliente</th>
+            <th>Histórico Médico</th>
+            <th>Frequência de Escovação</th>
+            <th>Frequência de Fio Dental</th>
+            <th>Frequência de Enxaguante</th>
+            <th>Sintomas Atuais</th>
+            <th>Hábitos Alimentares</th>
+            <th>Frequência de Visitas ao Dentista</th>
+            <th>Cuidados Específicos</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
+                <td>@item.Id</td>
                 <td>@item.IdCliente</td>
-                <td>
-                    @{
-                        var endereco = item.EnderecoPreferencia != null 
-                            ? $"{item.EnderecoPreferencia.Rua}, {item.EnderecoPreferencia.Bairro}, {item.EnderecoPreferencia.Cidade}" 
-                            : "Endereço não disponível";
-                    }
-                    @endereco
-                </td>
-                <td>
-                    @if (item.DiaSemanaPreferencia != null)
-                    {
-                        @item.DiaSemanaPreferencia.DiaSemana
-                    }
-                    else
-                    {
-                        <text>Dia da semana não disponível</text>
-                    }
-                </td>
-                <td>
-                    @if (item.TurnoPreferencia != null)
-                    {
-                        @item.TurnoPreferencia.Turno
-                    }
-                    else
-                    {
-                        <text>Turno não disponível</text>
-                    }
-                </td>
-                <td>
-                    @if (item.HorarioPreferencia != null)
-                    {
-                        @item.HorarioPreferencia.Horario
-                    }
-                    else
-                    {
-                        <text>Horário não disponível</text>
-                    }
-                </td>
+                <td>@item.HistoricoMedico</td>
+                <td>@item.FrequenciaEscovacao</td>
+                <td>@item.FrequenciaFioDental</td>
+                <td>@item.FrequenciaEnxaguante</td>
+                <td>@item.SintomasAtuais</td>
+                <td>@item.HabitosAlimentares</td>
+                <td>@item.FrequenciaVisitasDentista</td>
+                <td>@item.CuidadosEspecificos</td>
             </tr>
         }
     </tbody>
