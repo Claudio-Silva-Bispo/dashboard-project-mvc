@@ -1,8 +1,8 @@
 @using System.Security.Claims
-@model DelfosMachine.Models.EnderecoPreferencia
+@model DelfosMachine.Models.HorarioPreferencia
 
 @{
-    ViewData["Title"] = "Criar Preferências do Usuário";
+    ViewData["Title"] = "Criar Preferências do Usuário - Horário";
     var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 }
 
@@ -39,44 +39,33 @@
                 <!-- Campo oculto para armazenar o ID do Cliente -->
                 <input type="hidden" asp-for="IdCliente" value="@userId" />
 
+                <!-- Checkboxes para os dias da semana -->
                 <div class="form-group">
-                    <label asp-for="CEP" class="control-label fs-6"></label>
-                    <input asp-for="CEP" class="form-control" />
-                    <span asp-validation-for="CEP" class="text-danger"></span>
+                    <label asp-for="Horario" class="control-label fs-6">Selecione seu horário de preferência:</label>
+                    <select asp-for="Horario" class="form-control">
+                        <option value="">-- Selecione um --</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                    </select>
+                    <span asp-validation-for="Horario" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Estado" class="control-label fs-6"></label>
-                    <input asp-for="Estado" class="form-control" />
-                    <span asp-validation-for="Estado" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Cidade" class="control-label fs-6"></label>
-                    <input asp-for="Cidade" class="form-control" />
-                    <span asp-validation-for="Cidade" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Bairro" class="control-label fs-6"></label>
-                    <input asp-for="Bairro" class="form-control" />
-                    <span asp-validation-for="Bairro" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Rua" class="control-label fs-6"></label>
-                    <input asp-for="Rua" class="form-control" />
-                    <span asp-validation-for="Rua" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Complemento" class="control-label"></label>
-                    <input asp-for="Complemento" class="form-control" />
-                    <span asp-validation-for="Complemento" class="text-danger"></span>
-                </div>
+                
                 <div class="form-group pt-3">
                     <input type="submit" value="Salvar" class="btn btn-primary" />
-                    <!-- Botão que redireciona para a página CriarDiaSemanaPreferencia -->
-                    <a asp-controller="DiaSemanaPreferencia" asp-action="Criar" class="btn btn-secondary">Continuar</a>
-
-                    <!-- Botão que redireciona para a ação Consultar do controller EnderecoPreferencia -->
-                    <a asp-controller="EnderecoPreferencia" asp-action="Consultar" class="btn btn-secondary">Consultar</a>
-
+                    <a asp-controller="DadosCadastrais" asp-action="Consultar" class="btn btn-warning">Dados Cadastrais</a>
+                    <a asp-controller="HorarioPreferencia" asp-action="Consultar" class="btn btn-secondary">Consultar</a>
+                    <a asp-controller="TurnoPreferencia" asp-action="Criar" class="btn btn-secondary bg-yellow">Voltar</a>
                 </div>
 
                 <!-- Exibir alerta de sucesso, se houver -->
@@ -89,6 +78,7 @@
             </form>
 
         </div>
+
     </div>
 
     <div class="w-80" style="height: 70vh">
