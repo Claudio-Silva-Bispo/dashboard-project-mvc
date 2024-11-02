@@ -6,6 +6,8 @@ public class EnderecoPreferencia
     [Key]    
     public int Id { get; set; }
 
+    public int IdCliente { get; set; }
+
     [Required(ErrorMessage = "O CEP é obrigatório")]
     [StringLength(8, ErrorMessage = "O CEP deve ter no máximo 8 caracteres, sem acentos")]
     public string? CEP { get; set; }

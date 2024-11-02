@@ -1,26 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
 using DelfosMachine.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace DelfosMachine.Controllers
 {
-    public class PreferenciaClienteController : Controller
+    public class HorarioPreferenciaController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PreferenciaClienteController(ApplicationDbContext context)
+        public HorarioPreferenciaController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public IActionResult Criar()
+        public IActionResult CriarHorarioPreferencia()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Criar([Bind("Id,IdCliente,IdEndereco,EnderecoPreferencia,TurnoPreferencia,HorarioPreferencia,DiaSemanaPreferencia")] PreferenciaCliente preferenciaCliente)
+        public async Task<IActionResult> CriarHorarioPreferencia(PreferenciaCliente preferenciaCliente)
         {
             if (ModelState.IsValid)
             {
@@ -38,18 +39,6 @@ namespace DelfosMachine.Controllers
             return View();
         }
 
-
-        [HttpGet("Consultar")]
-        public async Task<IActionResult> Consultar()
-        {
-            var preferencias = await _context.PreferenciasClientes
-                .Include(p => p.EnderecoPreferencia)
-                .Include(p => p.DiaSemanaPreferencia)
-                .Include(p => p.TurnoPreferencia)
-                .Include(p => p.HorarioPreferencia)
-                .ToListAsync();
-            return View(preferencias);
-        }
 
     }
 }

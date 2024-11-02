@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DelfosMachine")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf4472b6b4a426d035d9085b81838a573e72e322")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6444c99aafdac358b345c5538d39202453781814")]
 [assembly: System.Reflection.AssemblyProductAttribute("DelfosMachine")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DelfosMachine")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

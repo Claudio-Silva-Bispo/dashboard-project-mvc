@@ -38,6 +38,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFkb3NDYWRhc3RyYWlzXENvbnN1bHRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/EnderecoPreferencia/Consultar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29QcmVmZXJlbmNpYVxDb25zdWx0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/EnderecoPreferencia/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29QcmVmZXJlbmNpYVxDcmlhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/Home/Diagrama.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaWFncmFtYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -98,8 +106,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZmVyZW5jaWFDbGllbnRlXENvbnN1bHRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/PreferenciaCliente/Criar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZmVyZW5jaWFDbGllbnRlXENyaWFyLmNzaHRtbA==
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/PreferenciaCliente/CriarDiaSemanaPreferencia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZmVyZW5jaWFDbGllbnRlXENyaWFyRGlhU2VtYW5hUHJlZmVyZW5jaWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/PreferenciaCliente/CriarHorarioPreferencia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZmVyZW5jaWFDbGllbnRlXENyaWFySG9yYXJpb1ByZWZlcmVuY2lhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/PreferenciaCliente/CriarTurnoPreferencia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlZmVyZW5jaWFDbGllbnRlXENyaWFyVHVybm9QcmVmZXJlbmNpYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/PreferenciaCliente/Mensagem.cshtml]

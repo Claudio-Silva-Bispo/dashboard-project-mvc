@@ -33,18 +33,7 @@ public class ClienteController : Controller
         {
             _context.Add(cliente);
             await _context.SaveChangesAsync();
-            // Primeiro salva o cliente e depois lança a chave na tabela fato
 
-            // // 2. Configurar os dados cadastrais
-            // // Atribuir o ID do cliente cadastrado
-            // dadosCadastrais.IdCliente = cliente.Id; 
-
-            // // 3. Adicionar dados cadastrais em outra base que será minha fato
-            // _context.DadosCadastrais.Add(dadosCadastrais);
-            
-            // await _context.SaveChangesAsync(); 
-            
-            // Armazenar a mensagem de sucesso em TempData
             TempData["SuccessMessage"] = "Cliente cadastrado com sucesso!";
             return RedirectToAction("Mensagem");
         }
