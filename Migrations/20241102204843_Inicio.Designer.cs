@@ -11,8 +11,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace DelfosMachine.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241102134307_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241102204843_Inicio")]
+    partial class Inicio
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -218,6 +218,109 @@ namespace DelfosMachine.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RotinaCuidado");
+                });
+
+            modelBuilder.Entity("DelfosMachine.Models.SugestaoConsulta", b =>
+                {
+                    b.Property<int>("IdSugestao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("id_sugestao");
+
+                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdSugestao"));
+
+                    b.Property<string>("Cliente")
+                        .HasMaxLength(100)
+                        .HasColumnType("NVARCHAR2(100)")
+                        .HasColumnName("cliente");
+
+                    b.Property<string>("Clinica")
+                        .HasMaxLength(100)
+                        .HasColumnType("NVARCHAR2(100)")
+                        .HasColumnName("clinica");
+
+                    b.Property<decimal>("Custo")
+                        .HasColumnType("DECIMAL(18, 2)")
+                        .HasColumnName("custo");
+
+                    b.Property<string>("DescricaoDiaPreferencia")
+                        .HasMaxLength(15)
+                        .HasColumnType("NVARCHAR2(15)")
+                        .HasColumnName("descricao_dia_preferencia");
+
+                    b.Property<string>("DescricaoHorarioPreferencia")
+                        .HasMaxLength(15)
+                        .HasColumnType("NVARCHAR2(15)")
+                        .HasColumnName("descricao_horario_preferencia");
+
+                    b.Property<string>("DescricaoTurno")
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR2(10)")
+                        .HasColumnName("descricao_turno");
+
+                    b.Property<string>("EnderecoClinica")
+                        .HasMaxLength(255)
+                        .HasColumnType("NVARCHAR2(255)")
+                        .HasColumnName("endereco_clinica");
+
+                    b.Property<string>("Especialista")
+                        .HasMaxLength(100)
+                        .HasColumnType("NVARCHAR2(100)")
+                        .HasColumnName("especialista");
+
+                    b.Property<int>("FkIdCliente")
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("fk_id_cliente");
+
+                    b.Property<int>("FkIdClinica")
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("fk_id_clinica");
+
+                    b.Property<int>("FkIdEspecialista")
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("fk_id_especialista");
+
+                    b.Property<int>("FkIdMotivoRecusa")
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("fk_id_motivo_recusa");
+
+                    b.Property<int>("FkIdPreferenciaDia")
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("fk_id_preferencia_dia");
+
+                    b.Property<int>("FkIdPreferenciaHorario")
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("fk_id_preferencia_horario");
+
+                    b.Property<int>("FkIdStatusSugestao")
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("fk_id_status_sugestao");
+
+                    b.Property<int>("FkIdTratamento")
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("fk_id_tratamento");
+
+                    b.Property<int>("FkIdTurno")
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("fk_id_turno");
+
+                    b.Property<int>("FkPerfilRecusa")
+                        .HasColumnType("NUMBER(10)")
+                        .HasColumnName("fk_perfil_recusa");
+
+                    b.Property<string>("StatusSugestao")
+                        .HasMaxLength(15)
+                        .HasColumnType("NVARCHAR2(15)")
+                        .HasColumnName("status_sugestao");
+
+                    b.Property<string>("Tratamento")
+                        .HasMaxLength(100)
+                        .HasColumnType("NVARCHAR2(100)")
+                        .HasColumnName("tratamento");
+
+                    b.HasKey("IdSugestao");
+
+                    b.ToTable("sugestaoConsulta", (string)null);
                 });
 
             modelBuilder.Entity("DelfosMachine.Models.TurnoPreferencia", b =>

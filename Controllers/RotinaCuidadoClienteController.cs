@@ -12,36 +12,46 @@ public class RotinaCuidadoClienteController : Controller
         _context = context;
     }
 
-    // GET: RotinaCuidadoCliente/Criar
     [HttpGet("Criar")]
     public IActionResult Criar()
     {
         return View();
     }
 
-    // POST: RotinaCuidadoCliente/Criar
     [HttpPost("Criar")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Criar([Bind("Id,IdCliente,HistoricoMedico,FrequenciaEscovacao,FrequenciaFioDental,FrequenciaEnxaguante,SintomasAtuais,HabitosAlimentares,FrequenciaVisitasDentista,CuidadosEspecificos")] RotinaCuidadoCliente rotinaCuidado)
+    public async Task<IActionResult> Criar(RotinaCuidadoCliente rotinaCuidado)
     {
         if (ModelState.IsValid)
-        {
-            _context.Add(rotinaCuidado);
-            await _context.SaveChangesAsync(); 
-            
-            // Armazenar a mensagem de sucesso em TempData
-            TempData["SuccessMessage"] = "Rotina de cuidado cadastrada com sucesso!";
-            return RedirectToAction("Mensagem");
+            {
+
+                var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+                if (int.TryParse(userId, out int clienteId))
+                {
+                    rotinaCuidado.IdCliente = clienteId;
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Erro ao obter o ID do cliente logado.");
+                    return View(rotinaCuidado);
+                }
+
+                _context.Add(rotinaCuidado);
+                await _context.SaveChangesAsync(); 
+                
+                TempData["SuccessMessage"] = "Rotina de cuidado cadastrada com sucesso!";
+                return RedirectToAction("MensagemSucesso");
         }
         return View(rotinaCuidado);
     }
 
-    public IActionResult Mensagem()
+    [HttpGet("MensagemSucesso")]
+    public IActionResult MensagemSucesso()
     {
         return View();
     }
 
-    // GET: RotinaCuidadoCliente/ConsultarRotina
     [HttpGet("Consultar")]
     public async Task<IActionResult> Consultar()
     {

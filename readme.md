@@ -284,7 +284,7 @@ Adicione o seguinte código no método ConfigureService
 
 4. Gere as migrações:
 ```bash
-    dotnet ef migrations add InitialCreate 
+    dotnet ef migrations add Inicio
 ```
 **Sempre mudar o nome final, ao cadastrar uma nova tabela**
 

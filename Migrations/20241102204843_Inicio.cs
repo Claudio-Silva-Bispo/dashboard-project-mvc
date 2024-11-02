@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DelfosMachine.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Inicio : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -98,6 +98,38 @@ namespace DelfosMachine.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "sugestaoConsulta",
+                columns: table => new
+                {
+                    id_sugestao = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    fk_id_cliente = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    fk_id_clinica = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    fk_id_especialista = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    fk_id_status_sugestao = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    fk_id_turno = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    fk_id_preferencia_dia = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    fk_id_preferencia_horario = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    fk_id_tratamento = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    fk_perfil_recusa = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    fk_id_motivo_recusa = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    cliente = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: true),
+                    descricao_dia_preferencia = table.Column<string>(type: "NVARCHAR2(15)", maxLength: 15, nullable: true),
+                    descricao_horario_preferencia = table.Column<string>(type: "NVARCHAR2(15)", maxLength: 15, nullable: true),
+                    descricao_turno = table.Column<string>(type: "NVARCHAR2(10)", maxLength: 10, nullable: true),
+                    clinica = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: true),
+                    endereco_clinica = table.Column<string>(type: "NVARCHAR2(255)", maxLength: 255, nullable: true),
+                    especialista = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: true),
+                    tratamento = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: true),
+                    status_sugestao = table.Column<string>(type: "NVARCHAR2(15)", maxLength: 15, nullable: true),
+                    custo = table.Column<decimal>(type: "DECIMAL(18, 2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_sugestaoConsulta", x => x.id_sugestao);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Turno",
                 columns: table => new
                 {
@@ -184,6 +216,9 @@ namespace DelfosMachine.Migrations
 
             migrationBuilder.DropTable(
                 name: "RotinaCuidado");
+
+            migrationBuilder.DropTable(
+                name: "sugestaoConsulta");
 
             migrationBuilder.DropTable(
                 name: "EnderecoPreferencia");
