@@ -23,4 +23,8 @@ public class Cliente
     
     [Required(ErrorMessage = "A data de nascimento é obrigatória")]
     public DateTime DataNasc { get; set; }
+
+    [Required(ErrorMessage = "A senha é obrigatória")]
+    [DataType(DataType.Password)]
+    public string? Senha { get; set; }
 }

@@ -1,4 +1,5 @@
 using DelfosMachine.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ public class ClienteController : Controller
         _context = context;
     }
 
+    // usar essaa tag para permitir que todos possam fazer cadastrado, mas quem não estiver logado, não vai conseguir acessar nada.
+    [AllowAnonymous]
     // GET: Cliente/Criar
     [HttpGet("Criar")]
     public IActionResult Criar()
@@ -20,124 +23,47 @@ public class ClienteController : Controller
         return View();
     }
 
+    [AllowAnonymous]
     // POST: Cliente/Criar
     [HttpPost("Criar")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Criar([Bind("Id,Nome,Email,Telefone,Genero,DataNasc")] Cliente cliente)
+    public async Task<IActionResult> Criar([Bind("Id,Nome,Email,Telefone,Genero,DataNasc,Senha")] Cliente cliente)
     {
         if (ModelState.IsValid)
         {
             _context.Add(cliente);
-            await _context.SaveChangesAsync(); 
+            await _context.SaveChangesAsync();
+            // Primeiro salva o cliente e depois lança a chave na tabela fato
+
+            // // 2. Configurar os dados cadastrais
+            // // Atribuir o ID do cliente cadastrado
+            // dadosCadastrais.IdCliente = cliente.Id; 
+
+            // // 3. Adicionar dados cadastrais em outra base que será minha fato
+            // _context.DadosCadastrais.Add(dadosCadastrais);
+            
+            // await _context.SaveChangesAsync(); 
             
             // Armazenar a mensagem de sucesso em TempData
             TempData["SuccessMessage"] = "Cliente cadastrado com sucesso!";
-            return RedirectToAction("MensagemSucesso");
+            return RedirectToAction("Mensagem");
         }
         return View(cliente);
     }
 
-    public IActionResult MensagemSucesso()
+    public IActionResult Mensagem()
     {
         return View();
     }
 
     // GET: Cliente/ConsultarTodos
-    [HttpGet("ConsultarTodos")]
-    public async Task<IActionResult> ConsultarTodos()
+    [HttpGet("Consultar")]
+    public async Task<IActionResult> Consultar()
     {
         var clientes = await _context.Clientes.ToListAsync(); 
         return View(clientes); 
     }
 
-    // GET: Cliente/Atualizar/5
-    [HttpGet("Atualizar/{id}")]
-    public async Task<IActionResult> Atualizar(int? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
 
-        var cliente = await _context.Clientes.FindAsync(id);
-        if (cliente == null)
-        {
-            return NotFound();
-        }
-        return View(cliente); // Retorna o formulário com os dados do cliente
-    }
-
-    // POST: Cliente/Atualizar/5
-    [HttpPost("Atualizar/{id}")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Atualizar(int id, [Bind("Id,Nome,Email,Telefone,Genero,DataNasc")] Cliente cliente)
-    {
-        if (id != cliente.Id)
-        {
-            return NotFound();
-        }
-
-        if (ModelState.IsValid)
-        {
-            try
-            {
-                _context.Update(cliente); // Atualiza os dados do cliente no banco
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ClienteExiste(cliente.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return RedirectToAction(nameof(ConsultarTodos)); // Redireciona para a lista de clientes após atualizar
-        }
-        return View(cliente);
-    }
-
-    // GET: Cliente/Deletar/5
-    [HttpGet("Deletar/{id}")]
-    public async Task<IActionResult> Deletar(int? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        var cliente = await _context.Clientes.FirstOrDefaultAsync(m => m.Id == id);
-        if (cliente == null)
-        {
-            return NotFound();
-        }
-
-        return View(cliente);
-    }
-
-    // POST: Cliente/Deletar/5
-    [HttpPost("Deletar/{id}"), ActionName("DeletarConfirmado")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeletarConfirmado(int id)
-    {
-        var cliente = await _context.Clientes.FindAsync(id);
-
-        if (cliente == null){
-            return NotFound();
-        }
-
-        _context.Clientes.Remove(cliente); 
-        await _context.SaveChangesAsync();
-
-        return RedirectToAction(nameof(ConsultarTodos)); 
-    }
-
-    private bool ClienteExiste(int id)
-    {
-        return _context.Clientes.Any(e => e.Id == id);
-    }
 
 }

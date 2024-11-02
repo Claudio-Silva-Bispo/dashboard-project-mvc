@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using DelfosMachine.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using System.Linq;
 
 namespace DelfosMachine.Controllers
 {
@@ -16,7 +14,7 @@ namespace DelfosMachine.Controllers
         }
 
         [HttpGet]
-        public IActionResult Preferencia()
+        public IActionResult Criar()
         {
             return View();
         }
@@ -30,25 +28,19 @@ namespace DelfosMachine.Controllers
                 await _context.SaveChangesAsync();
 
                 TempData["SuccessMessage"] = "Preferência cadastrada com sucesso!";
-                return RedirectToAction("MensagemSucesso");
+                return RedirectToAction("Mensagem");
             }
             return View(preferenciaCliente);
         }
 
-        public IActionResult MensagemSucesso()
+        public IActionResult Mensagem()
         {
             return View();
         }
 
-        // [HttpGet("ConsultarPreferencia")]
-        // public async Task<IActionResult> ConsultarPreferencia()
-        // {
-        //     var preferencias = await _context.PreferenciasClientes.ToListAsync();
-        //     return View(preferencias);
-        // }
 
-        [HttpGet("ConsultarPreferencia")]
-        public async Task<IActionResult> ConsultarPreferencia()
+        [HttpGet("Consultar")]
+        public async Task<IActionResult> Consultar()
         {
             var preferencias = await _context.PreferenciasClientes
                 .Include(p => p.EnderecoPreferencia)
@@ -59,91 +51,5 @@ namespace DelfosMachine.Controllers
             return View(preferencias);
         }
 
-        [HttpGet("Atualizar/{id}")]
-        public async Task<IActionResult> Atualizar(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var preferencia = await _context.PreferenciasClientes.FindAsync(id);
-            if (preferencia == null)
-            {
-                return NotFound();
-            }
-            return View(preferencia);
-        }
-
-        [HttpPost("Atualizar/{id}")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Atualizar(int id, [Bind("Id,IdCliente,IdEndereco,EnderecoPreferencia,TurnoPreferencia,HorarioPreferencia,DiaSemanaPreferencia")] PreferenciaCliente preferenciaCliente)
-        {
-            if (id != preferenciaCliente.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(preferenciaCliente);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PreferenciaClienteExiste(preferenciaCliente.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(ConsultarPreferencia));
-            }
-            return View(preferenciaCliente);
-        }
-
-        [HttpGet("Deletar/{id}")]
-        public async Task<IActionResult> Deletar(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var preferencia = await _context.PreferenciasClientes.FirstOrDefaultAsync(m => m.Id == id);
-            if (preferencia == null)
-            {
-                return NotFound();
-            }
-
-            return View(preferencia);
-        }
-
-        [HttpPost("Deletar/{id}"), ActionName("DeletarConfirmado")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeletarConfirmado(int id)
-        {
-            var preferencia = await _context.PreferenciasClientes.FindAsync(id);
-
-            if (preferencia == null)
-            {
-                return NotFound();
-            }
-
-            _context.PreferenciasClientes.Remove(preferencia);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(ConsultarPreferencia));
-        }
-
-        private bool PreferenciaClienteExiste(int id)
-        {
-            return _context.PreferenciasClientes.Any(e => e.Id == id);
-        }
     }
 }

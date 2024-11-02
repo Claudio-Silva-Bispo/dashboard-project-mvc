@@ -7,6 +7,21 @@
         <div class="row">
             <div class="col-12">
                 <h5 class="display-4">Gestão de clientes e parceiros</h5>
+
+                <!-- Saudação personalizada para meus clientes -->
+                <h6 class="mb-4">
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        @* Exibe o nome do usuário se ele estiver logado *@
+                        <span>Bem-vindo, @User.Identity.Name!</span>
+                    }
+                    else
+                    {
+                        @* Exibe "Visitante" se o usuário não estiver logado *@
+                        <span>Bem-vindo, Visitante! Faça seu login para acessar suas informações personalizadas.</span>
+                    }
+                </h6>
+
                 <div class="d-flex justify-content-center gap-3">
 
                     <div class="d-flex justify-content-center mt-4">

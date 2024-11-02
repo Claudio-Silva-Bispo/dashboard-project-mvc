@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,13 @@ builder.Services.AddControllersWithViews();
 // builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseOracle(builder.Configuration.GetConnectionString("Oracle")));
+
+// Configurar autenticação com cookies
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login/Logar";
+    });
 
 var app = builder.Build();
 
@@ -38,6 +46,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Adicionar autenticação e autorização ao pipeline
+app.UseAuthentication();
 app.UseAuthorization();
 
 // // Configure o Swagger

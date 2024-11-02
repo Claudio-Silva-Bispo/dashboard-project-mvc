@@ -8,6 +8,22 @@
     
     <div class="w-20 d-flex align-items-center justify-content-center" style="height: 80vh; padding-right: 10px;">
         <div class="container-fluid border p-4" style="min-height: 100vh; width: 70vh;">
+
+            <!-- Saudação personalizada -->
+                <h6 class="mb-4">
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        @* Exibe o nome do usuário se ele estiver logado *@
+                        <span>@User.Identity.Name!</span>
+                    }
+                    else
+                    {
+                        @* Exibe "Visitante" se o usuário não estiver logado *@
+                        <span>Bem-vindo, Visitante! Faça login para acessar suas informações.</span>
+                    }
+                </h6>
+            <p>Preenchendo sua rotina, além de pontuar no programa de benefícios, você vai ter um atendimento como nunca imaginou. Preencha e veja o que acontece.</p>
+
             <h2 class="fs-4">Rotina de Cuidado</h2>
 
             <form asp-action="MensagemSucesso" method="post">
@@ -76,7 +92,7 @@
                 </div>
                 <div class="form-group pt-3">
                     <input type="submit" value="Salvar" class="btn btn-primary" />
-                    <a asp-action="ConsultarRotina" class="btn btn-secondary">Cancelar</a>
+                    <a asp-action="Consultar" class="btn btn-secondary">Consultar</a>
                 </div>
             </form>
 

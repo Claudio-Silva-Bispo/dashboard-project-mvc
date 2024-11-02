@@ -21,7 +21,8 @@ namespace DelfosMachine.Migrations
                     Email = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     Telefone = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     Genero = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
-                    DataNasc = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false)
+                    DataNasc = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
+                    Senha = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -70,6 +71,27 @@ namespace DelfosMachine.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PreferenciaHorario", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RotinaCuidado",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    IdCliente = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    HistoricoMedico = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    FrequenciaEscovacao = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    FrequenciaFioDental = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    FrequenciaEnxaguante = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    SintomasAtuais = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    HabitosAlimentares = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+                    FrequenciaVisitasDentista = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    CuidadosEspecificos = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RotinaCuidado", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -126,6 +148,54 @@ namespace DelfosMachine.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "FatoCliente",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    IdCliente = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    IdPreferenciaCliente = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    IdRotinaCuidadoCliente = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FatoCliente", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FatoCliente_Clientes_IdCliente",
+                        column: x => x.IdCliente,
+                        principalTable: "Clientes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_FatoCliente_PreferenciasClientes_IdPreferenciaCliente",
+                        column: x => x.IdPreferenciaCliente,
+                        principalTable: "PreferenciasClientes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_FatoCliente_RotinaCuidado_IdRotinaCuidadoCliente",
+                        column: x => x.IdRotinaCuidadoCliente,
+                        principalTable: "RotinaCuidado",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FatoCliente_IdCliente",
+                table: "FatoCliente",
+                column: "IdCliente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FatoCliente_IdPreferenciaCliente",
+                table: "FatoCliente",
+                column: "IdPreferenciaCliente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FatoCliente_IdRotinaCuidadoCliente",
+                table: "FatoCliente",
+                column: "IdRotinaCuidadoCliente");
+
             migrationBuilder.CreateIndex(
                 name: "IX_PreferenciasClientes_IdDiaSemana",
                 table: "PreferenciasClientes",
@@ -151,10 +221,16 @@ namespace DelfosMachine.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "FatoCliente");
+
+            migrationBuilder.DropTable(
                 name: "Clientes");
 
             migrationBuilder.DropTable(
                 name: "PreferenciasClientes");
+
+            migrationBuilder.DropTable(
+                name: "RotinaCuidado");
 
             migrationBuilder.DropTable(
                 name: "EnderecoPreferencia");
