@@ -9,6 +9,22 @@
       "PackagePath": "staticwebassets\\assets\\CadastroCliente\\imagem1.jpg"
     },
     {
+      "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\CadastroCliente\\imagem2.png",
+      "PackagePath": "staticwebassets\\assets\\CadastroCliente\\imagem2.png"
+    },
+    {
+      "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\CadastroCliente\\imagem3.png",
+      "PackagePath": "staticwebassets\\assets\\CadastroCliente\\imagem3.png"
+    },
+    {
+      "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\CadastroCliente\\imagem4.png",
+      "PackagePath": "staticwebassets\\assets\\CadastroCliente\\imagem4.png"
+    },
+    {
+      "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\CadastroCliente\\imagem5.png",
+      "PackagePath": "staticwebassets\\assets\\CadastroCliente\\imagem5.png"
+    },
+    {
       "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\CadastroClinica\\imagem1.jpg",
       "PackagePath": "staticwebassets\\assets\\CadastroClinica\\imagem1.jpg"
     },
@@ -19,6 +35,10 @@
     {
       "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\CadastroEspecialista\\imagem1.jpg",
       "PackagePath": "staticwebassets\\assets\\CadastroEspecialista\\imagem1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\CadastroEspecialista\\imagem2.png",
+      "PackagePath": "staticwebassets\\assets\\CadastroEspecialista\\imagem2.png"
     },
     {
       "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\Feedback\\imagem1 - cópia.jpg",

@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\claudio.bispo\OneDrive - Ezze Seguros S.A\Área de Trabalho\projeto-dotnet\DelfosMachine
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/Cliente/Atualizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxBdHVhbGl6YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/Cliente/Consultar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDb25zdWx0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -28,6 +32,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/Cliente/Mensagem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxNZW5zYWdlbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/Cliente/MensagemAtualizacao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxNZW5zYWdlbUF0dWFsaXphY2FvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/DadosCadastrais/Consultar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFkb3NDYWRhc3RyYWlzXENvbnN1bHRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/DiaSemanaPreferencia/Consultar.cshtml]
