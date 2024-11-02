@@ -11,7 +11,7 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace DelfosMachine.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241101220747_InitialCreate")]
+    [Migration("20241102134307_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -61,34 +61,6 @@ namespace DelfosMachine.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("DelfosMachine.Models.DadosCadastrais", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("IdCliente")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.Property<int>("IdPreferenciaCliente")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.Property<int>("IdRotinaCuidadoCliente")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdCliente");
-
-                    b.HasIndex("IdPreferenciaCliente");
-
-                    b.HasIndex("IdRotinaCuidadoCliente");
-
-                    b.ToTable("FatoCliente");
-                });
-
             modelBuilder.Entity("DelfosMachine.Models.DiaSemanaPreferencia", b =>
                 {
                     b.Property<int>("Id")
@@ -100,6 +72,9 @@ namespace DelfosMachine.Migrations
                     b.Property<string>("DiaSemana")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<int>("IdCliente")
+                        .HasColumnType("NUMBER(10)");
 
                     b.HasKey("Id");
 
@@ -134,6 +109,9 @@ namespace DelfosMachine.Migrations
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
+                    b.Property<int>("IdCliente")
+                        .HasColumnType("NUMBER(10)");
+
                     b.Property<string>("Rua")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
@@ -153,6 +131,9 @@ namespace DelfosMachine.Migrations
 
                     b.Property<TimeSpan>("Horario")
                         .HasColumnType("INTERVAL DAY(8) TO SECOND(7)");
+
+                    b.Property<int>("IdCliente")
+                        .HasColumnType("NUMBER(10)");
 
                     b.HasKey("Id");
 
@@ -247,6 +228,9 @@ namespace DelfosMachine.Migrations
 
                     OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("IdCliente")
+                        .HasColumnType("NUMBER(10)");
+
                     b.Property<string>("Turno")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
@@ -254,33 +238,6 @@ namespace DelfosMachine.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Turno");
-                });
-
-            modelBuilder.Entity("DelfosMachine.Models.DadosCadastrais", b =>
-                {
-                    b.HasOne("DelfosMachine.Models.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("IdCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DelfosMachine.Models.PreferenciaCliente", "PreferenciaCliente")
-                        .WithMany()
-                        .HasForeignKey("IdPreferenciaCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DelfosMachine.Models.RotinaCuidadoCliente", "RotinaCuidadoCliente")
-                        .WithMany()
-                        .HasForeignKey("IdRotinaCuidadoCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("PreferenciaCliente");
-
-                    b.Navigation("RotinaCuidadoCliente");
                 });
 
             modelBuilder.Entity("DelfosMachine.Models.PreferenciaCliente", b =>

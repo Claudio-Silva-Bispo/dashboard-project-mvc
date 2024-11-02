@@ -17,5 +17,5 @@ public class ApplicationDbContext : DbContext
     public DbSet<TurnoPreferencia> Turno { get; set; }
     public DbSet<DiaSemanaPreferencia> PreferenciaDia  { get; set; }
     public DbSet<RotinaCuidadoCliente> RotinaCuidado  { get; set; }
-    public DbSet<DadosCadastrais> DadosCadastrais  { get; set; }
+
 }

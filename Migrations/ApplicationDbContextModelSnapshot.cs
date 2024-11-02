@@ -58,34 +58,6 @@ namespace DelfosMachine.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("DelfosMachine.Models.DadosCadastrais", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("IdCliente")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.Property<int>("IdPreferenciaCliente")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.Property<int>("IdRotinaCuidadoCliente")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdCliente");
-
-                    b.HasIndex("IdPreferenciaCliente");
-
-                    b.HasIndex("IdRotinaCuidadoCliente");
-
-                    b.ToTable("DadosCadastrais");
-                });
-
             modelBuilder.Entity("DelfosMachine.Models.DiaSemanaPreferencia", b =>
                 {
                     b.Property<int>("Id")
@@ -263,33 +235,6 @@ namespace DelfosMachine.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Turno");
-                });
-
-            modelBuilder.Entity("DelfosMachine.Models.DadosCadastrais", b =>
-                {
-                    b.HasOne("DelfosMachine.Models.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("IdCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DelfosMachine.Models.PreferenciaCliente", "PreferenciaCliente")
-                        .WithMany()
-                        .HasForeignKey("IdPreferenciaCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DelfosMachine.Models.RotinaCuidadoCliente", "RotinaCuidadoCliente")
-                        .WithMany()
-                        .HasForeignKey("IdRotinaCuidadoCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("PreferenciaCliente");
-
-                    b.Navigation("RotinaCuidadoCliente");
                 });
 
             modelBuilder.Entity("DelfosMachine.Models.PreferenciaCliente", b =>

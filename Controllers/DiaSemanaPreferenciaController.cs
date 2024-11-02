@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using DelfosMachine.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 namespace DelfosMachine.Controllers
 {
@@ -15,29 +14,31 @@ namespace DelfosMachine.Controllers
         }
 
         [HttpGet]
-        public IActionResult CriarDiaSemanaPreferencia()
+        public IActionResult Criar()
         {
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CriarDiaSemanaPreferencia(PreferenciaCliente preferenciaCliente)
+        [HttpPost("DiaSemanaPreferencia/Criar", Name = "DiaSemanaPreferencia")]
+        public async Task<IActionResult> Criar(DiaSemanaPreferencia dia)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(preferenciaCliente);
+                _context.Add(dia);
                 await _context.SaveChangesAsync();
 
-                // TempData["SuccessMessage"] = "Preferência cadastrada com sucesso!";
-                // return RedirectToAction("Mensagem");
+                TempData["SuccessMessage"] = "Preferência cadastrada com sucesso, clique em continuar!";
             }
-            return View(preferenciaCliente);
+            return View(dia);
         }
 
-        // public IActionResult Mensagem()
-        // {
-        //     return View();
-        // }
+        [HttpGet("DiaSemanaPreferencia/Consultar", Name = "ConsultarDiasSemana")]
+        public async Task<IActionResult> Consultar()
+        {
+            var dados = await _context.PreferenciaDia.ToListAsync(); 
+            return View(dados); 
+        }
+
 
 
     }

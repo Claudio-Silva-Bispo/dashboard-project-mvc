@@ -27,24 +27,18 @@ namespace DelfosMachine.Controllers
                 _context.Add(endereco);
                 await _context.SaveChangesAsync();
 
-                // TempData["SuccessMessage"] = "Preferência cadastrada com sucesso!";
+                TempData["SuccessMessage"] = "Preferência cadastrada com sucesso, clique em continuar!";
                 // return RedirectToAction("Mensagem");
             }
             return View(endereco);
         }
 
-        // GET: Cliente/ConsultarTodos
-        [HttpGet("Consultar")]
+        [HttpGet("EnderecoPreferencia/Consultar", Name = "ConsultarEndereco")]
         public async Task<IActionResult> Consultar()
         {
             var dados = await _context.EnderecoPreferencia.ToListAsync(); 
             return View(dados); 
         }
-
-        // public IActionResult Mensagem()
-        // {
-        //     return View();
-        // }
 
 
     }
