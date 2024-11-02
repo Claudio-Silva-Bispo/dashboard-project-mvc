@@ -1,8 +1,8 @@
 @using System.Security.Claims
-@model DelfosMachine.Models.DiaSemanaPreferencia
+@model DelfosMachine.Models.TurnoPreferencia
 
 @{
-    ViewData["Title"] = "Criar Preferências do Usuário - Dias da semana";
+    ViewData["Title"] = "Criar Preferências do Usuário - Turno";
     var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 }
 
@@ -41,30 +41,26 @@
 
                 <!-- Checkboxes para os dias da semana -->
                 <div class="form-group">
-                    <label asp-for="DiaSemana" class="control-label fs-6">Selecione os dias disponíveis:</label>
-                    <select asp-for="DiaSemana" class="form-control">
-                        <option value="">-- Selecione um dia --</option>
-                        <option value="segunda">Segunda-feira</option>
-                        <option value="terca">Terça-feira</option>
-                        <option value="quarta">Quarta-feira</option>
-                        <option value="quinta">Quinta-feira</option>
-                        <option value="sexta">Sexta-feira</option>
-                        <option value="sabado">Sábado</option>
-                        <option value="domingo">Domingo</option>
+                    <label asp-for="Turno" class="control-label fs-6">Selecione seu turno de preferência:</label>
+                    <select asp-for="Turno" class="form-control">
+                        <option value="">-- Selecione um --</option>
+                        <option value="manha">Manhã</option>
+                        <option value="tarde">Tarde</option>
+                        <option value="noite">Noite</option>
                     </select>
-                    <span asp-validation-for="DiaSemana" class="text-danger"></span>
+                    <span asp-validation-for="Turno" class="text-danger"></span>
                 </div>
                 
                <div class="form-group pt-3">
                     <input type="submit" value="Salvar" class="btn btn-primary" />
                     <!-- Botão que redireciona para a página CriarDiaSemanaPreferencia -->
-                    <a asp-controller="TurnoPreferencia" asp-action="Criar" class="btn btn-secondary">Continuar</a>
+                    <a asp-controller="HorarioPreferencia" asp-action="Criar" class="btn btn-secondary">Continuar</a>
 
                     <!-- Botão que redireciona para a ação Consultar do controller EnderecoPreferencia -->
-                    <a asp-controller="DiaSemanaPreferencia" asp-action="Consultar" class="btn btn-secondary">Consultar</a>
+                    <a asp-controller="TurnoPreferencia" asp-action="Consultar" class="btn btn-secondary">Consultar</a>
 
                     <!-- Botão que redireciona de volta a etapa anterior -->
-                    <a asp-controller="EnderecoPreferencia" asp-action="Criar" class="btn btn-secondary bg-yellow">Voltar</a>
+                    <a asp-controller="DiaSemanaPreferencia" asp-action="Criar" class="btn btn-secondary bg-yellow">Voltar</a>
                 </div>
 
                 <!-- Exibir alerta de sucesso, se houver -->

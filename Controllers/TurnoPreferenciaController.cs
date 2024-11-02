@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using DelfosMachine.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 namespace DelfosMachine.Controllers
 {
@@ -15,29 +14,31 @@ namespace DelfosMachine.Controllers
         }
 
         [HttpGet]
-        public IActionResult CriarTurnoPreferencia()
+        public IActionResult Criar()
         {
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CriarTurnoPreferencia(PreferenciaCliente preferenciaCliente)
+        [HttpPost("TurnoPreferencia/Criar", Name = "TurnoPreferencia")]
+        public async Task<IActionResult> Criar(TurnoPreferencia turnoPreferencia)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(preferenciaCliente);
+                _context.Add(turnoPreferencia);
                 await _context.SaveChangesAsync();
 
-                // TempData["SuccessMessage"] = "Preferência cadastrada com sucesso!";
-                // return RedirectToAction("Mensagem");
+                TempData["SuccessMessage"] = "Preferência cadastrada com sucesso, clique em continuar!";
             }
-            return View(preferenciaCliente);
+            return View(turnoPreferencia);
         }
 
-        // public IActionResult Mensagem()
-        // {
-        //     return View();
-        // }
+        [HttpGet("TurnoPreferencia/Consultar", Name = "ConsultarTurno")]
+        public async Task<IActionResult> Consultar()
+        {
+            var dados = await _context.Turno.ToListAsync(); 
+            return View(dados); 
+        }
+
 
 
     }
