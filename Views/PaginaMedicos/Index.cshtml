@@ -1,13 +1,12 @@
-@page
 @{
-    ViewData["Title"] = "Página de gestão dos médicos";
+    ViewData["Title"] = "Página de gestão dos clientes";
 }
 
-<div class="text-center min-vh-80">
+<div class="text-center min-vh-100">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h5 class="display-4">Gestão dos Médicos/Especialistas</h5>
+                <h5 class="display-4">Gestão de clientes</h5>
                 
                 <div class="d-flex justify-content-center gap-3">
 
@@ -21,9 +20,9 @@
                                 <div class="card-body">
                                     <h3 class="card-title w-100">Cadastro</h3>
                                     <p class="">
-                                        Dados cadastrais
+                                        Formulário de cadastro
                                     </p>
-                                    <a href="@Url.Action("PaginaCliente", "PaginaCliente")" class="btn btn-primary w-100">
+                                    <a href="@Url.Action("Criar", "Cliente")" class="btn btn-primary w-100">
                                         clique aqui <i class="pi pi-arrow-right"></i>
                                     </a>
                                 </div>
@@ -34,15 +33,15 @@
                             <div class="card shadow-lg rounded-lg overflow-hidden" style="max-width: 18rem;">
                                 <img
                                     alt="Card"
-                                    src="/assets/PaginaLogadaEspecialista/imagem2.png"
+                                    src="/assets/PaginaLogadaCliente/dados-cadastrais.png"
                                     class="img-fluid"
                                 />
                                 <div class="card-body">
-                                    <h3 class="card-title">Feedabck</h3>
+                                    <h3 class="card-title">Dados cadastrais</h3>
                                     <p class="">
-                                       Acompanhamento das pesquisas
+                                        Alterar dados cadastrais
                                     </p>
-                                    <a href="@Url.Action("PaginaClinica", "PaginaClinica")" class="btn btn-primary w-100">
+                                    <a href="@Url.Action("Consultar", "DadosCadastrais")" class="btn btn-primary w-100">
                                         clique aqui <i class="pi pi-arrow-right"></i>
                                     </a>
                                 </div>
@@ -50,22 +49,22 @@
                     </div>
 
                     <div class="d-flex justify-content-center mt-4">
-                            <div class="card shadow-lg rounded-lg overflow-hidden" style="max-width: 18rem;">
-                                <img
-                                    alt="Card"
-                                    src="/assets/PaginaLogadaEspecialista/imagem3.png"
-                                    class="img-fluid"
-                                />
-                                <div class="card-body">
-                                    <h3 class="card-title">Benefício</h3>
-                                    <p class="">
-                                       Programa de Benefício
-                                    </p>
-                                    <a href="@Url.Action("PaginaEspecialista", "PaginaEspecialista")" class="btn btn-primary w-100">
-                                        clique aqui <i class="pi pi-arrow-right"></i>
-                                    </a>
-                                </div>
+                        <div class="card shadow-lg rounded-lg overflow-hidden" style="max-width: 18rem;">
+                            <img
+                                alt="Card"
+                                src="/assets/PaginaLogadaCliente/beneficios.png"
+                                class="img-fluid"
+                            />
+                            <div class="card-body">
+                                <h3 class="card-title">Incentivo</h3>
+                                <p class="">
+                                    Programa de beneficios
+                                </p>
+                                <a href="@Url.Action("Index", "ProgramaIncentivoCliente")" class="btn btn-primary w-100">
+                                    clique aqui <i class="pi pi-arrow-right"></i>
+                                </a>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>

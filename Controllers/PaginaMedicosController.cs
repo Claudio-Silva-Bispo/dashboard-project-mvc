@@ -3,8 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DelfosMachine.Controllers
 {
-    [Authorize]
-    public class PaginaEspecialistaController : Controller
+    public class PaginaMedicosController : Controller
     {
    
         public IActionResult Index()
