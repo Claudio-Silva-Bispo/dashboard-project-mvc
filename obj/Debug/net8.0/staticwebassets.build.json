@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MKFkvk873l9aK0m85RtmP3TsyuMk98LNyw6XEBLi4sk=",
+  "Hash": "zefVFMgfzR9RyipdHQMfqTcFYoODtaRJx8EFWatTvrk=",
   "Source": "DelfosMachine",
   "BasePath": "_content/DelfosMachine",
   "Mode": "Default",
@@ -262,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\Feedback\\imagem1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\Feedback\\imagem1.png",
+      "SourceId": "DelfosMachine",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\",
+      "BasePath": "_content/DelfosMachine",
+      "RelativePath": "assets/Feedback/imagem1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\Feedback\\imagem1.png"
     },
     {
       "Identity": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\DelfosMachine\\wwwroot\\assets\\Feedback\\imagem2.png",
