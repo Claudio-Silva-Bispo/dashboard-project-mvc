@@ -122,6 +122,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTWVuc2FnZW1FcnJvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/Medico/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXENyaWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/Medico/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/Medico/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXEV4Y2x1aXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/Medico/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/PaginaCliente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnaW5hQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -168,6 +184,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/RotinaCuidadoCliente/MensagemSucesso.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm90aW5hQ3VpZGFkb0NsaWVudGVcTWVuc2FnZW1TdWNlc3NvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/ServicosPendentes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydmljb3NQZW5kZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/DelfosMachine/Views/Shared/Error.cshtml]
