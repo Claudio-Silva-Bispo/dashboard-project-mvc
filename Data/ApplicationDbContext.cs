@@ -16,10 +16,10 @@ public class ApplicationDbContext : DbContext
     public DbSet<DiaSemanaPreferencia> PreferenciaDia  { get; set; }
     public DbSet<RotinaCuidadoCliente> RotinaCuidado  { get; set; }
     public DbSet<SugestaoConsulta> SugestaoConsulta  { get; set; }
-
     public DbSet<Feedback> Feedback  { get; set; }
     public DbSet<ServicosPendentes> ServicosPendentes { get; set; }
     public DbSet<Medico> Medicos { get; set; }
+    public DbSet<Especialista> Especialista { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
