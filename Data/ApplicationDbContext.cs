@@ -17,6 +17,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<RotinaCuidadoCliente> RotinaCuidado  { get; set; }
     public DbSet<SugestaoConsulta> SugestaoConsulta  { get; set; }
 
+    public DbSet<Feedback> Feedback  { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
