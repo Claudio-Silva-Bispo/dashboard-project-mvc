@@ -25,15 +25,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Conceitos">Conceitos</a>
                         </li>
+                        }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Apoio">Apoio</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Apoio">Apoio de navegação</a>
                         </li>
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="http://localhost:5121/swagger">Desenvolvedores</a>
                         </li>
+                        }
                     </ul>
                     <ul class="navbar-nav flex gap-2">
                         @if (User.Identity != null && User.Identity.IsAuthenticated)
