@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DelfosMachine.Models;
+using BIProject.Models;
 using System.Security.Claims;
-using System.Threading.Tasks;
+using Swashbuckle.AspNetCore.Annotations;
 
-namespace DelfosMachine.Controllers
+namespace BIProject.Controllers
 {
     public class LoginController : Controller
     {
@@ -17,29 +17,43 @@ namespace DelfosMachine.Controllers
             _context = context;
         }
 
-        // GET: Login/Logar
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Logar()
         {
             return View();
         }
 
-        // POST: Login/Logar
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Logar(Login model)
+        [SwaggerOperation(Summary = "Autentica um usuário cadastrado", Description = "Avalia se o usuário possui conta e qual o perfil, os dados estando corretos, realiza o Login deixa visível as demais telas.")]
+        [ProducesResponseType(typeof(User), 201)] 
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> Logar(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = await _context.Clientes
+                var user = await _context.Usuario
                     .FirstOrDefaultAsync(c => c.Email == model.Email && c.Senha == model.Senha);
 
                 if (user != null && user.Nome != null && user.Email != null)
                 {
+
+                    // Adiciona o registro do login no histórico
+                    var loginHistory = new LoginHistory
+                    {
+                        IdUsuario = user.Id,
+                        Email = user.Email,
+                        DataHora = DateTime.UtcNow,
+
+                    };
+
+                    _context.Login.Add(loginHistory);
+                    await _context.SaveChangesAsync();
+
                     var claims = new List<Claim>
                     {
                         new Claim(ClaimTypes.Name, user.Nome),
                         new Claim(ClaimTypes.Email, user.Email),
-                        // Adiciona o ID do usuário como uma reivindicação para fazer alterações no cadastro
                         new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) 
                     };
 
@@ -57,13 +71,13 @@ namespace DelfosMachine.Controllers
             return View(model);
         }
 
-        // GET: Login/MensagemErro
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult MensagemErro()
         {
             return View();
         }
 
-        // GET: Login/Logout
+        [ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

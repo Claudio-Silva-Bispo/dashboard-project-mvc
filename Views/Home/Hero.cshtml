@@ -1,42 +1,48 @@
-@{
+﻿﻿@{
     ViewData["Title"] = "Hero";
 }
 
-<div class="text-center min-vh-100">
+<section class="text-center min-vh-80 justify-content-center" style="color: #D2E9C4; align-items: center; justify-content: center; justify-items: center;>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h5 class="display-4">Gestão de clientes e parceiros</h5>
-
+                <h5 class="display-4 progress-text" style="color: #3C4748; margin-top: 5rem;">Gestão de relatórios</h5>
+                
                 <!-- Saudação personalizada para meus clientes -->
                 <h6 class="mb-4">
                     @if (User.Identity != null && User.Identity.IsAuthenticated)
                     {
+
+                        var nomeUsuario = User.Claims.FirstOrDefault(c => c.Type == "FullName")?.Value;
                         @* Exibe o nome do usuário se ele estiver logado *@
-                        <span>Bem-vindo, @User.Identity.Name!</span>
+                        <span style="color: #028676;">Bem-vindo, @User.Identity.Name!</span>
+                        
+                        
                     }
                     else
                     {
                         @* Exibe "Visitante" se o usuário não estiver logado *@
-                        <span>Bem-vindo, Visitante! Faça seu login para acessar suas informações personalizadas.</span>
+                        <span style="color: #028676;">Bem-vindo, Visitante! Faça seu login para acessar suas informações personalizadas.</span>
+                    
                     }
                 </h6>
 
-                <div class="d-flex justify-content-center gap-3">
+                <div class="d-flex justify-content-center gap-5" style="justify-content: center; align-items: center; align-content: center; justify-items: center;">
 
                     <div class="d-flex justify-content-center mt-4">
-                            <div class="card shadow-lg rounded-lg overflow-hidden" style="max-width: 18rem;">
+                            <div class="card shadow-lg rounded-lg overflow-hidden" style="max-width: 22rem;">
                                 <img
                                     alt="Card"
-                                    src="/assets/Hero/imagem1.jpg"
+                                    src="/assets/Cadastro/imagem.png"
                                     class="img-fluid"
+                                    style="height: 200px; object-fit: cover;"
                                 />
                                 <div class="card-body">
-                                    <h3 class="card-title w-100">Cliente</h3>
-                                    <p class="">
-                                        Nesta workspace, você encontrará informações relacionados aos clientes, como cadastro, sugestão de agendamentos e consultas agendadas.
+                                    <h3 class="card-title w-100" style="color: #028676;">USUÁRIO</h3>
+                                    <p style="color: #3C4748; text-align: start;">
+                                        Atualize seus dados cadastrais para acessar os relatórios e acompanhar as novidades do dashboard.
                                     </p>
-                                    <a href="@Url.Action("Index", "PaginaCliente")" class="btn btn-primary w-100">
+                                    <a href="@Url.Action("Consult", "UserDetails")" class="btn w-100" style="background-color: #028676; color: white;">
                                         clique aqui <i class="pi pi-arrow-right"></i>
                                     </a>
                                 </div>
@@ -44,18 +50,19 @@
                     </div>
 
                     <div class="d-flex justify-content-center mt-4">
-                            <div class="card shadow-lg rounded-lg overflow-hidden" style="max-width: 18rem;">
+                            <div class="card shadow-lg rounded-lg overflow-hidden" style="max-width: 22rem;">
                                 <img
                                     alt="Card"
-                                    src="/assets/CadastroClinica/imagem1.jpg"
+                                    src="/assets/Index/imagem3.png"
                                     class="img-fluid"
+                                    style="height: 200px; object-fit: fill;"
                                 />
                                 <div class="card-body">
-                                    <h3 class="card-title">Clínica</h3>
-                                    <p class="">
-                                        Nesta workspace, você encontrará informações específicas para clinicas, como gestão da agenda, serviços pendentes, avaliações dos atendimentos.
+                                    <h3 class="card-title w-100" style="color: #028676;">CONFIGURAÇÃO</h3>
+                                    <p style="color: #3C4748; text-align: start;">
+                                        Página dedicada à gestão de dados e relatórios dos usuários administradores da área de BI.
                                     </p>
-                                    <a href="@Url.Action("Index", "PaginaClinica")" class="btn btn-primary w-100">
+                                    <a href="@Url.Action("Index", "Management")" class="btn w-100" style="background-color: #028676; color: white;">
                                         clique aqui <i class="pi pi-arrow-right"></i>
                                     </a>
                                 </div>
@@ -63,18 +70,39 @@
                     </div>
 
                     <div class="d-flex justify-content-center mt-4">
-                            <div class="card shadow-lg rounded-lg overflow-hidden" style="max-width: 18rem;">
+                            <div class="card shadow-lg rounded-lg overflow-hidden" style="max-width: 22rem;">
                                 <img
                                     alt="Card"
-                                    src="/assets/Login/imagem1.jpg"
+                                    src="/assets/Index/imagem2.png"
                                     class="img-fluid"
+                                    style="height: 200px; object-fit: cover;"
                                 />
                                 <div class="card-body">
-                                    <h3 class="card-title">Especialista</h3>
-                                    <p class="">
-                                        Nesta workspace, você encontrará informações disponíveis para os nossos especialistas (médicos), como programa de recompensa, cadastro, serviços realizados.
+                                    <h3 class="card-title" style="color: #028676;">CONCEITOS</h3>
+                                    <p style="color: #3C4748; text-align: start;">
+                                        Veja como os resultados foram calculados com base nos dados dos principais relatórios.
                                     </p>
-                                    <a href="@Url.Action("Index", "PaginaMedicos")" class="btn btn-primary w-100">
+                                    <a href="@Url.Action("Index", "Mapa")" class="btn w-100" style="background-color: #028676; color: white;">
+                                        clique aqui <i class="pi pi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-4">
+                            <div class="card shadow-lg rounded-lg overflow-hidden" style="max-width: 22rem;">
+                                <img
+                                    alt="Card"
+                                    src="/assets/Index/imagem1.jpg"
+                                    class="img-fluid"
+                                    style="height: 200px; object-fit: cover;"
+                                />
+                                <div class="card-body">
+                                    <h3 class="card-title" style="color: #028676;">DASHBOARDs</h3>
+                                    <p style="text-align: start; color: #3C4748;">
+                                        Confira de forma completa a lista de relatórios criados para você e para a Gestão da empresa.
+                                    </p>
+                                    <a href="@Url.Action("Index", "Dashboard")" class="btn w-100" style="background-color: #028676; color: white;">
                                         clique aqui <i class="pi pi-arrow-right"></i>
                                     </a>
                                 </div>
@@ -85,4 +113,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

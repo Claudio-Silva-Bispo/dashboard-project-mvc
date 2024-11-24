@@ -1,0 +1,49 @@
+@using System.Security.Claims
+@model UserDetails
+
+@{
+    ViewData["Title"] = "Dados Cadastrais";
+    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+}
+
+<section class="d-flex justify-content-center align-items-center p-3 mb-5" style="height: 80vh;">
+
+    <div class="d-flex w-100 h-100">
+        
+        <div class="container-fluid border p-4" style="width: 30%; min-height: 100%; background-color: #f8f9fa;">
+
+            <!-- Saudação personalizada -->
+            <h6 class="mb-4">
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    @* Exibe o nome do usuário se ele estiver logado *@
+                    <span>Olá @User.Identity.Name, esperamos que esteja bem!</span>
+
+                }
+                else
+                {
+                    @* Exibe "Visitante" se o usuário não estiver logado. Não tem que acontecer aqui, mas vou deixar por precaução. *@
+                    <span>Bem-vindo, Visitante! Faça login para acessar suas informações.</span>
+                }
+            </h6>
+
+
+            <h3>Dados cadastrados</h3>
+            <p>Nome: @Model.User.Nome</p>
+            <p>E-mail: @Model.User.Email</p>
+            <p>Departamento: @Model.User.Area</p>
+
+            <div class="form-group pt-3">
+                <a asp-controller="Home" asp-action="Hero" class="btn btn-warning">Voltar</a>
+                <a asp-controller="User" asp-action="Update" class="btn" style="background-color: #028676; color: white;">Atualizar</a>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary bg-green">Home</a>
+            </div>
+
+        </div>
+
+        <!-- Área de Imagem -->
+        <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+            <img src="~/assets/Cadastro/imagem.png" alt="Imagem de fundo para área de cadastro usuário" class="img-fluid" style="height: 100%; width: 100%; object-fit: cover;">
+        </div>
+    </div>
+</section>

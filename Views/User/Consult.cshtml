@@ -1,0 +1,38 @@
+@model IEnumerable<BIProject.Models.User>
+
+<section class="p-5">
+
+    <h2>Lista de Usuários</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Área</th>
+                <th>Perfil</th>
+                <th>Senha</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in Model)
+            {
+                <tr>
+                    <td>@usuario.Id</td>
+                    <td>@usuario.Nome</td>
+                    <td>@usuario.Email</td>
+                    <td>@usuario.Area</td>
+                    <td>@usuario.Perfil</td>
+                    <td>@usuario.Senha</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="form-group pt-3">
+        <a asp-controller="Management" asp-action="Index" class="btn btn-warning">Voltar</a>
+        <a asp-controller="User" asp-action="UpdatePerfil" class="btn btn-primary">Atualizar perfil</a>
+        <a asp-controller="Home" asp-action="Hero" class="btn btn-secondary bg-green">Home</a>
+    </div>
+
+</section>

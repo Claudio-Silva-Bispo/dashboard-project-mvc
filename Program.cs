@@ -11,10 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Adicione o serviço do Swagger
-// builder.Services.AddSwaggerGen();
-
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseOracle(builder.Configuration.GetConnectionString("Oracle")));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("sqlserver")));
 
 // Configurar autenticação com cookies
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -22,6 +19,20 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         options.LoginPath = "/Login/Logar";
     });
+
+// Adicione o serviço do Swagger
+//builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "BI EZZE",
+        Version = "v1",
+        Description = "API para gerenciar do uso de Dashboards."
+    });
+    c.EnableAnnotations(); // Habilita o uso de anotações do Swagger (como `SwaggerOperation`).
+});
 
 var app = builder.Build();
 
@@ -50,13 +61,14 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// // Configure o Swagger
-// app.UseSwagger();
-// app.UseSwaggerUI(c =>
-// {
-//     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API V1");
-//     c.RoutePrefix = string.Empty;
-// });
+// Configure o Swagger
+app.UseSwagger();
+
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API V1");
+    c.RoutePrefix = "swagger";
+});
 
 app.MapControllerRoute(
     name: "default",

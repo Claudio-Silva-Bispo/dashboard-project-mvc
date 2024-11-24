@@ -1,9 +1,24 @@
 @{
-    ViewBag.Title = "Login sem exito";
+    ViewBag.Title = "Login sem êxito";
 }
 
-<h2>Dados inválidos!</h2>
-<p>Realize seu cadastro ou insira os dados corretamente.</p>
+<section class="d-flex justify-content-center align-items-center p-3 mb-5" style="height: 80vh;">
+    <div class="d-flex w-100 h-100">
+        <!-- Área de Mensagem -->
+        <div class="container-fluid border p-4" style="width: 20%; min-height: 100%; background-color: #f8f9fa;">
+            <h2>Dados inválidos!</h2>
+            <p>Realize seu cadastro ou insira os dados corretamente.</p>
+            
+            <div>
+                <a asp-action="Criar" asp-controller="Usuario" class="btn w-100 mb-2" style="background-color: #028676; color: white;">Realize seu cadastro</a>
+                <a asp-action="Logar" asp-controller="Login" class="btn btn-secondary w-100">Login</a>
+            </div>
 
-<a asp-action="Criar" asp-controller="Cliente" class="btn btn-primary">Realize seu cadastro</a>
-<a asp-action="Logar" asp-controller="Login" class="btn btn-secondary">Login</a>
+        </div>
+
+        <!-- Área de Imagem -->
+        <div class="flex-grow-1">
+            <img src="~/assets/Cadastro/imagem3.png" alt="Imagem de fundo para área de cadastro usuário" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </div>
+</section>

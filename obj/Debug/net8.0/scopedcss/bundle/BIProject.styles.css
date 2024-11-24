@@ -1,0 +1,47 @@
+/* _content/BIProject/Views/Shared/_Layout.cshtml.rz.scp.css */
+
+a.navbar-brand[b-9c0f52d6hz] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-9c0f52d6hz] {
+  color: #4CAF50;
+}
+
+.btn-primary[b-9c0f52d6hz] {
+  color: #fff;
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.nav-pills .nav-link.active[b-9c0f52d6hz], .nav-pills .show > .nav-link[b-9c0f52d6hz] {
+  color: #fff;
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.border-top[b-9c0f52d6hz] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-9c0f52d6hz] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-9c0f52d6hz] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-9c0f52d6hz] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-9c0f52d6hz] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

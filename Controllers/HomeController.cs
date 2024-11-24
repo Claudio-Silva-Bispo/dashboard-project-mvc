@@ -1,8 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using DelfosMachine.Models;
+using BIProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
-namespace DelfosMachine.Controllers;
+namespace BIProject.Controllers;
 
 public class HomeController : Controller
 {
@@ -13,56 +14,44 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    // public IActionResult Index()
+    // {   
+    //     return View();
+    // }
+
     public IActionResult Index()
-    {   
-        _logger.LogInformation("Acessou a página Index.");
+    {
+
+        if (User.Identity != null && User.Identity.IsAuthenticated)
+        {
+
+            return RedirectToAction("Hero");
+        }
+
         return View();
     }
-
+    
+    [Authorize]
     public IActionResult Hero()
+    {   
+        return View();
+    }
+
+    public IActionResult Conceitos()
     {
         return View();
     }
 
-    public IActionResult Solucao()
+    public IActionResult Apoio()
     {
         return View();
     }
-
-    public IActionResult Projeto()
-    {
-        return View();
-    }
-
-    public IActionResult Objetivo()
-    {
-        return View();
-    }
-
-    public IActionResult Persona()
-    {
-        return View();
-    }
-
-    public IActionResult Etapas()
-    {
-        return View();
-    }
-
-    public IActionResult Diagrama()
-    {
-        return View();
-    }
-
-    public IActionResult Time()
-    {
-        return View();
-    }
-
+   
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return View();
     }
 }
+

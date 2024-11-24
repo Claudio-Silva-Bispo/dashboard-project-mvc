@@ -1,0 +1,24 @@
+@{
+    ViewBag.Title = "Cadastro do usuário - Sucesso";
+}
+
+<section class="d-flex justify-content-center align-items-center p-3 mb-5" style="height: 80vh">
+
+    <div class="w-100 d-flex align-items-center justify-content-center pt-5" style="height: 80vh; padding-right: 10px;">
+        
+        <div class="container-fluid border p-4" style="min-height: 80vh; width: 60vh;">
+
+            <h2>Sucesso!</h2>
+            <p>O usuário foi cadastrado com sucesso. Você pode voltar à lista de usuários ou cadastrar outro usuário.</p>
+
+            <a asp-action="Criar" asp-controller="Usuario" class="btn btn-secondary">Cadastrar novo usuário</a>
+            <a asp-action="Logar" asp-controller="Login" class="btn" style="background-color: #028676; color: white;">Faça o Login</a>
+        </div>
+
+        <div class="w-100" style="height: 80vh">
+            <img src="~/assets/Cadastro/imagem3.png" alt="Imagem de fundo para área de cadastro usuario" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+    </div>
+
+</section>

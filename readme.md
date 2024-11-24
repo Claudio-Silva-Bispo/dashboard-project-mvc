@@ -4,18 +4,17 @@
 
 1. No terminal do VS Code, execute o comando:
 ```bash
-    dotnet new mvc -n DelfosMachine
+    dotnet new mvc -n BIProject
 ```
 
 2. Navegar até a pasta
 ```bash
-    cd DelfosMachine
+    cd BIProject
 ```  
 
-3. Instale o pacote NuGet para Oracle:
+3. Instale o pacote NuGet para SQLServer:
 ```bash
-    dotnet add package Oracle.ManagedDataAccess.Core
-    dotnet add package Oracle.EntityFrameworkCore
+    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.10
 ```
 
 ## Agora vamos configurar a string de conexão com o banco de dados Oracle
@@ -26,7 +25,7 @@
 ```bash
     {
         "ConnectionStrings": {
-        "Oracle": "User Id=seu_usuario;Password=sua_senha;Data Source=seu_data_source"}
+        "sqlserver": "Server=;Database=;User Id=;Password= ;Encrypt=False;"}
     }
 
 ```
@@ -38,18 +37,6 @@ Adicione o seguinte código ao ApplicationDbContext.cs
 
 ```bash
 
-    using DelfosMachine.Models;
-    using Microsoft.EntityFrameworkCore;
-
-    public class ApplicationDbContext : DbContext
-    {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
-
-        public DbSet<Cliente> Clientes { get; set; }
-    }
 ```
 
 ## Abra o arquivo Startup.cs.
@@ -57,15 +44,13 @@ Adicione o seguinte código no método ConfigureService
 
 ```bash
     services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseOracle(Configuration.GetConnectionString("OracleConnection")));
+    options.UseOracle(Configuration.GetConnectionString("sqlserver")));
 ```
 
 ## Vamos adicionar o Swagger ao projeto:
 ```bash
     dotnet add package Swashbuckle.AspNetCore
-    dotnet add package Swashbuckle.AspNetCore.Annotations
-
-    
+    dotnet add package Swashbuckle.AspNetCore.Annotations 
 ```
 
 ## Configure o Swagger no Program.cs
