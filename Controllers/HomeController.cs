@@ -34,6 +34,18 @@ public class HomeController : Controller
     [Authorize]
     public IActionResult Hero()
     {   
+
+        if(User.HasClaim("Perfil","adm"))
+        {
+            return RedirectToAction("HeroAdm");
+        }
+
+        return View();
+    }
+
+    [Authorize]
+    public IActionResult HeroAdm()
+    {
         return View();
     }
 

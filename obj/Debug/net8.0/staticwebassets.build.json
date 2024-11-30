@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Jq5iERRqoPXszY90qBIyrILWdqiP9GVm2929ZDk7p0s=",
+  "Hash": "3iq/HAooiJmZsYTS4Z0CVFgycRuZtuRvlv9yApKB1ZU=",
   "Source": "BIProject",
   "BasePath": "_content/BIProject",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BIProject.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\638681217981047067.xlsx",
+      "SourceId": "BIProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\",
+      "BasePath": "_content/BIProject",
+      "RelativePath": "assets/638681217981047067.xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\638681217981047067.xlsx"
     },
     {
       "Identity": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\Cadastro\\imagem.png",
@@ -148,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\Cadastro\\imagem5.png"
+    },
+    {
+      "Identity": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\Concept\\imagem.jpg",
+      "SourceId": "BIProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\",
+      "BasePath": "_content/BIProject",
+      "RelativePath": "assets/Concept/imagem.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\Concept\\imagem.jpg"
     },
     {
       "Identity": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\Hero\\imagem.jpg",

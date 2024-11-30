@@ -112,9 +112,7 @@ public class UserController : Controller
         usuarioExistente.Nome = usuario.Nome;
         usuarioExistente.Email = usuario.Email;
         usuarioExistente.Area = usuario.Area;
-        //usuarioExistente.Senha = usuario.Senha;
 
-        // Só altera a senha se o campo de senha não estiver vazio
         if (!string.IsNullOrEmpty(usuario.Senha))
         {
             usuarioExistente.Senha = usuario.Senha;
@@ -123,9 +121,7 @@ public class UserController : Controller
         await _context.SaveChangesAsync();
 
         TempData["SuccessMessage"] = "Usuário atualizado com sucesso!";
-        //return RedirectToAction("MensagemAtualizacao");
 
-        // Retorna a mesma View sem redirecionar
         return View(usuarioExistente);
     }
 
@@ -172,7 +168,6 @@ public class UserController : Controller
         return RedirectToAction("MensagemExclusao", "Usuario"); 
     }
 
-    // Mensagem após a exclusão do usuário
     [HttpGet("MensagemExclusao")]
     [ApiExplorerSettings(IgnoreApi = true)] 
     public IActionResult MensagemExclusao()
@@ -180,9 +175,7 @@ public class UserController : Controller
         return View(); 
     }
 
-
     // Ajustar perfil do usuário pela gestão do BI
-
     [HttpGet("UpdatePerfil")]
     [ApiExplorerSettings(IgnoreApi = true)]
     public async Task<IActionResult> UpdatePerfil()
@@ -258,9 +251,7 @@ public class UserController : Controller
         await _context.SaveChangesAsync();
 
         TempData["SuccessMessage"] = "Usuário atualizado com sucesso!";
-        //return RedirectToAction("MensagemAtualizacao");
 
-        // Retorna a mesma View sem redirecionar
         return View(usuarioExistente);
     }
 

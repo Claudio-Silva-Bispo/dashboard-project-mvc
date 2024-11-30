@@ -1,0 +1,66 @@
+@model BIProject.Models.ConceptTitle
+
+@{
+    ViewData["Title"] = "Cadastrar Conceito";
+}
+
+<section class="d-flex justify-content-center align-items-center p-3 mb-5" style="height: 80vh;">
+    <div class="d-flex w-100 h-100">
+        <!-- Área de Cadastro -->
+        <div class="container-fluid border p-4" style="width: 30%; min-height: 100%; background-color: #f8f9fa;">
+            
+            <h2 style="color: #028676;">Cadastrar Conceito</h2>
+
+            <p>Insira os dados e mantenha os usuários por dentro de tudo que fazemos.</p>
+
+            <!-- Formulário de Cadastro dados título -->
+            <form class="form-horizontal" asp-action="SaveTitle" method="post">
+                
+                <div>
+
+                    <p style="font-size: medium;">Cadastre um novo Título ou selecione um existente.</p>
+                    
+                    <div class="form-group">
+                        <label asp-for="Titulo" class="control-label"></label>
+                        <input asp-for="Titulo" class="form-control" />
+                        <span asp-validation-for="Titulo" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group w-100 pt-3">
+                    <input type="submit" value="Cadastrar título" class="btn w-100" style="background-color: #028676; color: white;" />
+                </div>
+
+                <!-- Exibir alerta de sucesso, se houver -->
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success mt-3">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+                <!-- Exibe mensagens de erro -->
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger mt-3">
+                        @TempData["ErrorMessage"]
+                    </div>
+                }
+
+            </form>
+
+            <div class="form-group pt-3">
+                <a asp-controller="Home" asp-action="Hero" class="btn btn-warning">Voltar</a>
+                <a asp-controller="ConceptTitle" asp-action="Consult" class="btn btn-secondary">Consultar</a>
+                <a asp-controller="Concept" asp-action="Update" class="btn" style="background-color: #028676; color: white;">Atualizar</a>
+                <a asp-controller="ConceptDetails" asp-action="Create" class="btn btn-primary">Criar detalhes</a>
+            </div>
+
+        </div>
+
+        <!-- Área de Imagem -->
+        <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+            <img src="~/assets/Concept/imagem.jpg" alt="Imagem de fundo para área de cadastro" class="img-fluid" style="height: 100%; width: 100%; object-fit: contain;">
+        </div>
+    </div>
+</section>

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\BIProject.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\638681217981047067.xlsx",
+      "PackagePath": "staticwebassets\\assets\\638681217981047067.xlsx"
+    },
+    {
       "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\Cadastro\\imagem.png",
       "PackagePath": "staticwebassets\\assets\\Cadastro\\imagem.png"
     },
@@ -23,6 +27,10 @@
     {
       "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\Cadastro\\imagem5.png",
       "PackagePath": "staticwebassets\\assets\\Cadastro\\imagem5.png"
+    },
+    {
+      "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\Concept\\imagem.jpg",
+      "PackagePath": "staticwebassets\\assets\\Concept\\imagem.jpg"
     },
     {
       "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\Hero\\imagem.jpg",
