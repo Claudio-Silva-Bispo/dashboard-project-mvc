@@ -18,8 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\claudio.bispo\OneDrive - Ezze Seguros S.A\Área de Trabalho\projeto-dotnet\bi-ezze-project
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/bi-ezze-project/Views/ConceptDetails/Consult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uY2VwdERldGFpbHNcQ29uc3VsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/bi-ezze-project/Views/ConceptDetails/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uY2VwdERldGFpbHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/bi-ezze-project/Views/ConceptDetails/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uY2VwdERldGFpbHNcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/bi-ezze-project/Views/ConceptTitle/Consult.cshtml]
@@ -32,6 +40,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/bi-ezze-project/Views/ConceptTitle/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uY2VwdFRpdGxlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/bi-ezze-project/Views/ConceptTitle/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uY2VwdFRpdGxlXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/bi-ezze-project/Views/Concept/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uY2VwdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/claudio.bispo/OneDrive - Ezze Seguros S.A/Área de Trabalho/projeto-dotnet/bi-ezze-project/Views/Home/Apoio.cshtml]

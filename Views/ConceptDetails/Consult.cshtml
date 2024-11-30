@@ -1,4 +1,4 @@
-@model IEnumerable<BIProject.Models.ConceptTitle>
+@model IEnumerable<BIProject.Models.ConceptDetails>
 
 <section class="p-5">
 
@@ -7,7 +7,10 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nome</th>
+                <th>IdTitulo</th>
+                <th>Título</th>
+                <th>Subtítulo</th>
+                <th>Descrição</th>
             </tr>
         </thead>
         <tbody>
@@ -15,8 +18,10 @@
             {
                 <tr>
                     <td>@concept.Id</td>
+                    <td>@concept.IdTitulo</td>
                     <td>@concept.Titulo</td>
-                
+                    <td>@concept.Subtitulo</td>
+                    <td>@concept.Descricao</td>
                 </tr>
             }
         </tbody>
@@ -24,7 +29,7 @@
 
     <div class="form-group pt-3">
         <a asp-controller="Management" asp-action="Index" class="btn btn-warning">Voltar</a>
-        <a asp-controller="ConceptTitle" asp-action="Update" class="btn btn-primary">Atualizar Títulos</a>
+        <a asp-controller="ConceptDetails" asp-action="Update" class="btn btn-primary">Atualizar Descrição</a>
         <a asp-controller="Home" asp-action="Hero" class="btn btn-secondary bg-green">Home</a>
     </div>
 

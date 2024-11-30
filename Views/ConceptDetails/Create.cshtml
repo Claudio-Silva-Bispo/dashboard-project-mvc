@@ -22,11 +22,11 @@
                 <!-- Lista de títulos -->
                 <div class="form-group pt-3">
                     <label for="Concepts">Lista de títulos</label>
-                    <select asp-for="ConceptDetails.IdTitulo" class="form-control" id="Concepts">
+                    <select asp-for="ConceptDetails.Titulo" class="form-control" id="Concepts" onchange="updateIdTitulo()">
                         <option value="">Selecione</option>
                         @foreach (var concept in Model.ConceptTitles)
                         {
-                            <option value="@concept.Id">@concept.Titulo</option>
+                            <option value="@concept.Titulo" data-id="@concept.Id">@concept.Titulo</option>
                         }
                     </select>
                 </div>
@@ -72,6 +72,14 @@
                 }
                 
             </form>
+
+            <div class="form-group pt-3">
+                <a asp-controller="ConceptTitle" asp-action="Create" class="btn btn-warning">Voltar</a>
+                <a asp-controller="ConceptDetails" asp-action="Consult" class="btn btn-secondary">Consultar</a>
+                <a asp-controller="ConceptDetails" asp-action="Update" class="btn" style="background-color: #028676; color: white;">Atualizar</a>
+                <a asp-controller="Home" asp-action="Hero" class="btn btn-primary">Home</a>
+            </div>
+
         </div>
 
         <!-- Área de Imagem -->

@@ -81,5 +81,43 @@ namespace BIProject.Controllers
             var concepts = _context.ConceitoTitulo.ToList();
             return View(concepts);  
         }
+
+        [HttpGet("Update")]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public IActionResult Update()
+        {
+
+            return View();
+        }
+
+        [HttpPost("Update")]
+        [SwaggerOperation(Summary = "Atualiza as informações de um título", Description = "Atualiza os dados do título com base no ID.")]
+        [ProducesResponseType(typeof(User), 200)]
+        [ProducesResponseType(400)]  
+        [ProducesResponseType(404)] 
+        public async Task<IActionResult> Update(ConceptTitle conceptTitle)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(conceptTitle);
+            }
+
+            var ConceptTitleExistente = await _context.ConceitoTitulo.FindAsync(conceptTitle.Id);
+            
+            if (ConceptTitleExistente == null)
+            {
+                return NotFound();
+            }
+
+            ConceptTitleExistente.Id = conceptTitle.Id;
+            ConceptTitleExistente.Titulo = conceptTitle.Titulo;
+            
+            await _context.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = "Título atualizado com sucesso!";
+
+            return View(ConceptTitleExistente);
+        }
+
     }
 }
