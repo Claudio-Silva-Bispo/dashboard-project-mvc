@@ -1,0 +1,32 @@
+@model IEnumerable<BIProject.Models.ConceptDetails>
+
+<section class="p-5">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        @foreach (var grupo in Model.GroupBy(c => c.IdTitulo)) 
+        {
+            <!-- Título do Grupo de Accordion -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading@grupo.Key">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse@grupo.Key" aria-expanded="true" aria-controls="collapse@grupo.Key" style="background-color: #028676; color: white;">
+                        @grupo.First().Titulo <!-- Exibe o título do primeiro item do grupo -->
+                    </button>
+                </h2>
+                
+                <div id="collapse@grupo.Key" class="accordion-collapse collapse @(grupo.Key == Model.FirstOrDefault()?.IdTitulo ? "show" : "")" aria-labelledby="heading@grupo.Key" data-bs-parent="#accordionPanelsStayOpenExample">
+                    <div class="accordion-body">
+                        <!-- Itera pelos itens do grupo e exibe os detalhes -->
+                        @foreach (var conceito in grupo)
+                        {
+                            <div>
+                                <h4>@conceito.Subtitulo</h4>
+                                <p>@conceito.Descricao</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

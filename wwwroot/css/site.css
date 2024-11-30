@@ -26,3 +26,18 @@ body, html {
   flex-direction: column;    
   justify-content: center;      
 }
+
+/*Ajuste para a tela conceito*/
+/* Inicialmente, a seta aponta para baixo */
+.accordion-button .fa-chevron-up {
+  display: none;
+}
+
+/* Quando o acordeão está aberto, inverte a seta para cima */
+.accordion-button.collapsed .fa-chevron-down {
+  display: none;
+}
+
+.accordion-button:not(.collapsed) .fa-chevron-up {
+  display: inline-block;
+}
