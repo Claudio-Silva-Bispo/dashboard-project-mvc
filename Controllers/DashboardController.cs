@@ -17,7 +17,7 @@ namespace BIProject.Controllers
         }
 
         [Authorize]
-        [HttpGet]
+        [HttpGet("Dashboard/Index")]
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Index()
         {
@@ -25,7 +25,7 @@ namespace BIProject.Controllers
         }
 
         [Authorize]
-        [HttpGet("Dashboard/Create")]
+        [HttpGet]
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Create()
         {
@@ -35,37 +35,36 @@ namespace BIProject.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [SwaggerOperation(Summary = "Cria o conceito completo, ligado ao título do produto ou área", Description = "Cadastra o conceito com título, subtítulo e descrição na aplicação.")]
+        [SwaggerOperation(Summary = "Cadastra os links dos relatórios no banco", Description = "Cria uma lista de relatórios com links para hospedarmos no sistema sem o usuário ter o acesso público ou privado, apenas consiga visualizar os dados.")]
         [ProducesResponseType(typeof(User), 201)] 
         [ProducesResponseType(400)]
-        public async Task<IActionResult> Create(ConceptDetailsViewModel viewModel)
+        public async Task<IActionResult> Create(Dashboard dashboard)
         {
 
             if (ModelState.IsValid)
             {
-                _context.Add(viewModel.ConceptDetails);
+                _context.Add(dashboard);
                 await _context.SaveChangesAsync();
 
-                TempData["SuccessMessage"] = "Conceito cadastrado com sucesso!";
+                TempData["SuccessMessage"] = "Relatório cadastrado com sucesso!";
                 return RedirectToAction("Create");
             }
 
-            viewModel.ConceptTitles = _context.ConceitoTitulo.ToList();
-            return View(viewModel);
+            return View(dashboard);
         }
 
         [Authorize]
         [HttpGet("Consult")]
         public async Task<IActionResult> Consult()
         {
-            var conceptTitles = await _context.ConceitoDetalhes.ToListAsync();
+            var dashboards = await _context.Dashboard.ToListAsync();
 
-            if (conceptTitles == null || !conceptTitles.Any())
+            if (dashboards == null || !dashboards.Any())
             {
                 return RedirectToAction("Error");
             }
 
-            return View(conceptTitles);
+            return View(dashboards);
             
         }
 
@@ -78,35 +77,35 @@ namespace BIProject.Controllers
         }
 
         [HttpPost("Update")]
-        [SwaggerOperation(Summary = "Atualiza as informações do conceito completo", Description = "Atualiza os dados do conceito com base no ID.")]
+        [SwaggerOperation(Summary = "Atualiza as informações dos relatórios de forma completa", Description = "Atualiza os dados de um relatório com base no ID.")]
         [ProducesResponseType(typeof(User), 200)]
         [ProducesResponseType(400)]  
         [ProducesResponseType(404)] 
-        public async Task<IActionResult> Update(ConceptDetails conceptDetails)
+        public async Task<IActionResult> Update(Dashboard dashboard)
         {
             if (!ModelState.IsValid)
             {
-                return View(conceptDetails);
+                return View(dashboard);
             }
 
-            var ConceptDetailsExistente = await _context.ConceitoDetalhes.FindAsync(conceptDetails.Id);
+            var dashboardExistente = await _context.Dashboard.FindAsync(dashboard.Id);
             
-            if (ConceptDetailsExistente == null)
+            if (dashboardExistente == null)
             {
                 return NotFound();
             }
 
-            ConceptDetailsExistente.Id = conceptDetails.Id;
-            ConceptDetailsExistente.IdTitulo = conceptDetails.IdTitulo;
-            ConceptDetailsExistente.Titulo = conceptDetails.Titulo;
-            ConceptDetailsExistente.Subtitulo = conceptDetails.Subtitulo;
-            ConceptDetailsExistente.Descricao = conceptDetails.Descricao;
+            dashboardExistente.Id = dashboard.Id;
+            dashboardExistente.NomeRelatorio = dashboard.NomeRelatorio;
+            dashboardExistente.Solicitante = dashboard.Solicitante;
+            dashboardExistente.AnalistaCriador = dashboard.AnalistaCriador;
+            dashboardExistente.DataCriacao = dashboard.DataCriacao;
+            dashboardExistente.Link = dashboard.Link;
             
             await _context.SaveChangesAsync();
 
             TempData["SuccessMessage"] = "Dados atualizados com sucesso!";
-
-            return View(ConceptDetailsExistente);
+            return View(dashboardExistente);
         }
 
     }

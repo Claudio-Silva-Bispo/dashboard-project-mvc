@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\assets\\Dashboard\\imagem1.jpg"
     },
     {
+      "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\Dashboard\\imagem2.jpg",
+      "PackagePath": "staticwebassets\\assets\\Dashboard\\imagem2.jpg"
+    },
+    {
       "Id": "C:\\Users\\claudio.bispo\\OneDrive - Ezze Seguros S.A\\Área de Trabalho\\projeto-dotnet\\bi-ezze-project\\wwwroot\\assets\\Hero\\imagem.jpg",
       "PackagePath": "staticwebassets\\assets\\Hero\\imagem.jpg"
     },
