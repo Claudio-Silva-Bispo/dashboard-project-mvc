@@ -15,6 +15,8 @@ public class ApplicationDbContext : DbContext
     public required DbSet<ConceptTitle> ConceitoTitulo { get; set; }
 
     public required DbSet<ConceptDetails> ConceitoDetalhes { get; set; }
+
+    public required DbSet<Dashboard> Dashboard { get; set; }
     
 
 }

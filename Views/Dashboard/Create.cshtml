@@ -1,0 +1,83 @@
+@model BIProject.Models.Dashboard
+
+@{
+    ViewData["Title"] = "Cadastrar Relatórios";
+}
+
+<section class="d-flex justify-content-center align-items-center p-3 mb-5" style="height: 80vh;">
+    <div class="d-flex w-100 h-100">
+        <!-- Área de Cadastro -->
+        <div class="container-fluid border p-4" style="width: 30%; min-height: 100%; background-color: #f8f9fa;">
+            
+            <h2 style="color: #028676;">Cadastrar Relatórios</h2>
+
+            <p>Insira novos relatórios e mantenha os usuários por dentro de tudo que fazemos.</p>
+
+            <!-- Formulário de Cadastro dados título -->
+            <form class="form-horizontal" asp-action="Create" method="post">
+                <div class="form-group">
+                    <label asp-for="NomeRelatorio" class="control-label">Nome do relatório</label>
+                        <input asp-for="NomeRelatorio" class="form-control" />
+                    <span asp-validation-for="NomeRelatorio" class="text-danger"></span>
+                </div>
+
+                <div class="form-group pt-3">
+                    <label asp-for="Solicitante" class="control-label">Solicitante criador</label>
+                        <input asp-for="Solicitante" class="form-control" />
+                    <span asp-validation-for="Solicitante" class="text-danger"></span>
+                </div>
+
+                <div class="form-group pt-3">
+                    <label asp-for="AnalistaCriador" class="control-label">Análista responsável</label>
+                        <input asp-for="AnalistaCriador" class="form-control" />
+                    <span asp-validation-for="AnalistaCriador" class="text-danger"></span>
+                </div>
+
+                <div class="form-group pt-3">
+                    <label asp-for="DataCriacao" class="control-label">Data criação</label>
+                        <input asp-for="DataCriacao" class="form-control" type="date"/>
+                    <span asp-validation-for="DataCriacao" class="text-danger"></span>
+                </div>
+
+                <div class="form-group pt-3">
+                    <label asp-for="Link" class="control-label">Link</label>
+                        <input asp-for="Link" class="form-control"/>
+                    <span asp-validation-for="Link" class="text-danger"></span>
+                </div>
+
+                <div class="form-group w-100 pt-3">
+                    <input type="submit" value="Cadastrar" class="btn w-100" style="background-color: #028676; color: white;" />
+                </div>
+
+                <!-- Exibir alerta de sucesso, se houver -->
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success mt-3">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+                <!-- Exibe mensagens de erro -->
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger mt-3">
+                        @TempData["ErrorMessage"]
+                    </div>
+                }
+
+                <div class="form-group pt-3">
+                <a asp-controller="Home" asp-action="Hero" class="btn btn-warning">Home</a>
+                <a asp-controller="Dashboard" asp-action="Consult" class="btn btn-secondary">Consultar</a>
+                <a asp-controller="Dashboard" asp-action="Update" class="btn" style="background-color: #028676; color: white;">Atualizar</a>
+
+            </div>
+
+            </form>
+        </div>
+
+        <!-- Área de Imagem -->
+        <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+            <img src="~/assets/Dashboard/imagem.jpg" alt="Imagem de fundo para área de cadastro" class="img-fluid" style="height: 100%; width: 100%; object-fit: contain;">
+        </div>
+
+    </div>
+</section>

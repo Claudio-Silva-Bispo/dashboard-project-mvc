@@ -1,0 +1,78 @@
+@model BIProject.Models.Dashboard
+
+@{
+    ViewData["Title"] = "Atualizar dados dos relatórios";
+}
+
+<section class="d-flex justify-content-center align-items-center p-3 mb-5" style="height: 80vh;">
+    
+    <div class="d-flex w-100 h-100">
+        
+        <div class="container-fluid border p-4" style="width: 30%; min-height: 100%; background-color: #f8f9fa;">
+            
+            <h2>Atualizar dados</h2>
+            
+            <form asp-action="Update" method="post">
+                <div class="form-group">
+                    <label asp-for="Id" class="control-label"></label>
+                        <input asp-for="Id" class="form-control"/>
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NomeRelatorio" class="control-label"></label>
+                        <input asp-for="NomeRelatorio" class="form-control"/>
+                    <span asp-validation-for="NomeRelatorio" class="text-danger"></span>
+                </div>
+
+                <div class="form-group pt-2">
+                    <label asp-for="Solicitante" class="control-label"></label>
+                        <input asp-for="Solicitante" class="form-control"/>
+                    <span asp-validation-for="Solicitante" class="text-danger"></span>
+                </div>
+
+                <div class="form-group pt-2">
+                    <label asp-for="AnalistaCriador" class="control-label"></label>
+                        <input asp-for="AnalistaCriador" class="form-control"/>
+                    <span asp-validation-for="AnalistaCriador" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group pt-2">
+                    <label asp-for="DataCriacao" class="control-label"></label>
+                        <input asp-for="DataCriacao" class="form-control" type="date"/>
+                    <span asp-validation-for="DataCriacao" class="text-danger"></span>
+                </div>
+
+                <div class="form-group pt-2">
+                    <label asp-for="Link" class="control-label"></label>
+                        <input asp-for="Link" class="form-control"/>
+                    <span asp-validation-for="Link" class="text-danger"></span>
+                </div>
+
+                <div class="form-group pt-2">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                    <a asp-controller="Dashboard" asp-action="Consult" class="btn btn-secondary">Consultar</a>
+                </div>
+
+                <!-- Exibir alerta de sucesso, se houver -->
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success mt-3">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+            </form>
+        </div>
+
+        <!-- Área de Imagem -->
+        <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+            <img src="~/assets/Concept/imagem.jpg" alt="Imagem de fundo para área de cadastro usuário" class="img-fluid" style="width: 100%; height: 100%; object-fit: constains;">
+        </div>
+
+    </div>
+
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,38 @@
+@model IEnumerable<BIProject.Models.Dashboard>
+
+<section class="p-5">
+
+    <h2>Lista de Relatórios publicados</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome Relatório</th>
+                <th>Solicitante</th>
+                <th>Analista</th>
+                <th>Data criação</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dash in Model)
+            {
+                <tr>
+                    <td>@dash.Id</td>
+                    <td>@dash.NomeRelatorio</td>
+                    <td>@dash.Solicitante</td>
+                    <td>@dash.AnalistaCriador</td>
+                    <td>@dash.DataCriacao</td>
+                    <td>@dash.Link</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="form-group pt-3">
+        <a asp-controller="Dashboard" asp-action="Create" class="btn btn-warning">Voltar</a>
+        <a asp-controller="Dashboard" asp-action="Update" class="btn btn-primary">Atualizar dados</a>
+        <a asp-controller="Home" asp-action="Hero" class="btn btn-secondary bg-green">Home</a>
+    </div>
+
+</section>

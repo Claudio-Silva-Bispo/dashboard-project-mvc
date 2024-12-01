@@ -34,6 +34,10 @@ builder.Services.AddSwaggerGen(c =>
     c.EnableAnnotations(); // Habilita o uso de anotações do Swagger (como `SwaggerOperation`).
 });
 
+// Configuração para garantir o fuso horário de São Paulo
+TimeZoneInfo timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+builder.Services.AddSingleton(timeZoneInfo);
+
 var app = builder.Build();
 
 // Aplica as migrações pendentes e cria o banco se necessário. Melhor do que eu esperar ter a tabela.
