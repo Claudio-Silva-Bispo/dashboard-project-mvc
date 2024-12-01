@@ -108,5 +108,21 @@ namespace BIProject.Controllers
             return View(dashboardExistente);
         }
 
+        [Authorize]
+        [HttpGet("ConsultDashboard")]
+        public async Task<IActionResult> ConsultDashboard()
+        {
+            var dashboards = await _context.Dashboard.ToListAsync();
+
+            if (dashboards == null || !dashboards.Any())
+            {
+                return RedirectToAction("Error");
+            }
+
+            return View(dashboards);
+            
+        }
+
+
     }
 }

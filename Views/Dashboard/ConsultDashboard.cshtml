@@ -1,0 +1,62 @@
+@model IEnumerable<BIProject.Models.Dashboard>
+
+@{
+    ViewData["Title"] = "Consultar Relatórios";
+}
+
+<section class="d-flex justify-content-center align-items-center p-3 mb-5" style="height: 100vh;">
+    <div class="d-flex w-100 h-100">
+        <div class="container-fluid border p-4" style="width: 100%; min-height: 100%; background-color: #f8f9fa;">
+
+            <h2>Selecione um Relatório</h2>
+
+            <!-- Dropdown para selecionar o relatório -->
+            <div class="mb-4">
+                <select id="relatorio-select" class="form-select" onchange="toggleButton()" aria-label="Selecione um Relatório">
+                    <option value="">-- Escolha um Relatório --</option>
+                    @foreach (var dashboard in Model)
+                    {
+                        <option value="@dashboard.Link">@dashboard.NomeRelatorio</option>
+                    }
+                </select>
+            </div>
+
+            <!-- Botão para abrir o relatório (inicialmente escondido) -->
+            <button id="abrir-relatorio-btn" class="btn btn-info btn-sm" style="display: none;" onclick="abrirRelatorio()">Abrir Relatório</button>
+
+            <!-- Área do iframe -->
+            <div id="iframe-container" class="mt-4" style="display: none;">
+                <iframe id="iframe-relatorio" width="100%" height="600px" frameborder="0"></iframe>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    // Função para mostrar ou esconder o botão "Abrir Relatório" dependendo da seleção
+    function toggleButton() {
+        var selectElement = document.getElementById("relatorio-select");
+        var button = document.getElementById("abrir-relatorio-btn");
+        
+        if (selectElement.value) {
+            button.style.display = "inline-block";  // Exibe o botão
+        } else {
+            button.style.display = "none";  // Esconde o botão
+        }
+    }
+
+    // Função para abrir o relatório no iframe
+    function abrirRelatorio() {
+        var selectElement = document.getElementById("relatorio-select");
+        var link = selectElement.value;
+        
+        if (link) {
+            // Exibe o iframe
+            document.getElementById("iframe-container").style.display = "block";
+        
+            // Atualiza o src do iframe com o link do relatório
+            document.getElementById("iframe-relatorio").src = link;
+        }
+    }
+</script>
